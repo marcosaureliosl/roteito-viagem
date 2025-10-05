@@ -12,9 +12,9 @@ import Header from './components/layout/Header';
 import DrawerMenu from './components/layout/DrawerMenu';
 
 // Pages - Importações dinâmicas para code-splitting
-const HomePage = lazy(() => import('./pages/HomePage.tsx'));
-const DayItineraryPage = lazy(() => import('./pages/DayItineraryPage.tsx'));
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage.tsx'));
+const HomePage = lazy(() => import('./pages/HomePage'));
+const DayItineraryPage = lazy(() => import('./pages/DayItineraryPage'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Componente de carregamento
 const LoadingSpinner = () => (
@@ -30,9 +30,13 @@ const LoadingSpinner = () => (
 
 function App() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 600);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth < 600 : false
+  );
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
     const handleResize = () => {
       setIsMobile(window.innerWidth < 600);
       if (window.innerWidth > 900) {
@@ -40,6 +44,9 @@ function App() {
       }
     };
 
+    // Configura o valor inicial
+    handleResize();
+    
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);

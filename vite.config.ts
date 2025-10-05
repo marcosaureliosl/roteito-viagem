@@ -4,6 +4,9 @@ import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+    'process.env': {}
+  },
   plugins: [react()],
   resolve: {
     alias: {
@@ -17,8 +20,10 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
+    target: 'esnext',
+    minify: 'esbuild',
   },
   optimizeDeps: {
-    include: ['@mui/material', '@emotion/react', '@emotion/styled'],
+    include: ['@emotion/react', '@emotion/styled'],
   },
 });

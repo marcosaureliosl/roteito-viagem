@@ -1,39 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { 
-  Box, 
-  Typography, 
-  Card, 
-  CardContent, 
-  List, 
-  ListItem, 
-  ListItemText, 
-  Divider, 
-  Chip,
-  Button,
-  IconButton,
-  Paper,
-  Avatar,
-  ListItemAvatar,
-  ListItemButton,
-  Collapse
-} from '@mui/material';
-import { 
-  ArrowBack as ArrowBackIcon, 
-  ExpandLess as ExpandLessIcon, 
+import {
+  ArrowBack as ArrowBackIcon,
+  BeachAccess as BeachIcon,
+  ExpandLess as ExpandLessIcon,
   ExpandMore as ExpandMoreIcon,
-  Place as PlaceIcon,
+  FlightTakeoff as FlightIcon,
   Info as InfoIcon,
+  Park as ParkIcon,
+  Place as PlaceIcon,
   Restaurant as RestaurantIcon,
   ShoppingCart as ShoppingCartIcon,
-  BeachAccess as BeachIcon,
-  Park as ParkIcon,
-  FlightTakeoff as FlightIcon
 } from '@mui/icons-material';
+import {
+  Avatar,
+  Box,
+  Button,
+  Card,
+  CardContent,
+  Chip,
+  Collapse,
+  Divider,
+  IconButton,
+  List,
+  ListItem,
+  ListItemAvatar,
+  ListItemButton,
+  ListItemText,
+  Paper,
+  Typography,
+} from '@mui/material';
 import { format, parseISO } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import React, { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import type { Activity, DayItinerary } from '../data/itinerary';
 import { itineraryData } from '../data/itinerary';
-import type { DayItinerary, Activity } from '../data/itinerary';
 
 const DayItineraryPage: React.FC = () => {
   const { dayId } = useParams<{ dayId: string }>();
@@ -57,38 +57,52 @@ const DayItineraryPage: React.FC = () => {
 
     const day = itineraryData[dayNumber - 1]; // -1 porque os arrays são baseados em 0
     setDayData(day);
-    
+
     // Inicializa todos os itens como recolhidos
     const initialExpanded: Record<string, boolean> = {};
-    day?.activities.forEach(activity => {
+    day?.activities.forEach((activity) => {
       initialExpanded[activity.id] = false; // Inicia todos fechados
     });
     setExpanded(initialExpanded);
   }, [dayId, navigate]);
 
   const handleToggleExpand = (id: string) => {
-    setExpanded(prev => ({
+    setExpanded((prev) => ({
       ...prev,
-      [id]: !prev[id]
+      [id]: !prev[id],
     }));
   };
 
   const getActivityIcon = (activity: Activity) => {
     const title = activity.title.toLowerCase();
-    
-    if (title.includes('café') || title.includes('cafe') || title.includes('almoço') || title.includes('jantar')) {
+
+    if (
+      title.includes('café') ||
+      title.includes('cafe') ||
+      title.includes('almoço') ||
+      title.includes('jantar')
+    ) {
       return <RestaurantIcon sx={{ color: 'white' }} />;
     }
     if (title.includes('compras') || title.includes('shopping')) {
       return <ShoppingCartIcon sx={{ color: 'white' }} />;
     }
-    if (title.includes('parque') || title.includes('disney') || title.includes('universal') || title.includes('seaworld')) {
+    if (
+      title.includes('parque') ||
+      title.includes('disney') ||
+      title.includes('universal') ||
+      title.includes('seaworld')
+    ) {
       return <ParkIcon sx={{ color: 'white' }} />;
     }
     if (title.includes('praia') || title.includes('miami')) {
       return <BeachIcon sx={{ color: 'white' }} />;
     }
-    if (title.includes('chegada') || title.includes('voo') || title.includes('aeroporto')) {
+    if (
+      title.includes('chegada') ||
+      title.includes('voo') ||
+      title.includes('aeroporto')
+    ) {
       return <FlightIcon sx={{ color: 'white' }} />;
     }
     return <InfoIcon sx={{ color: 'white' }} />;
@@ -102,7 +116,7 @@ const DayItineraryPage: React.FC = () => {
   if (!dayData) {
     return (
       <Box sx={{ textAlign: 'center', py: 4 }}>
-        <Typography variant="h6">Carregando...</Typography>
+        <Typography variant='h6'>Carregando...</Typography>
       </Box>
     );
   }
@@ -115,10 +129,10 @@ const DayItineraryPage: React.FC = () => {
           <ArrowBackIcon />
         </IconButton>
         <Box>
-          <Typography variant="h4" component="h1" sx={{ fontWeight: 'bold' }}>
+          <Typography variant='h4' component='h1' sx={{ fontWeight: 'bold' }}>
             {dayData.title}
           </Typography>
-          <Typography variant="subtitle1" color="text.secondary">
+          <Typography variant='subtitle1' color='text.secondary'>
             {formatDate(dayData.date)}
           </Typography>
         </Box>
@@ -126,9 +140,7 @@ const DayItineraryPage: React.FC = () => {
 
       {dayData.description && (
         <Paper elevation={0} sx={{ p: 2, mb: 3, bgcolor: 'action.hover' }}>
-          <Typography variant="body1">
-            {dayData.description}
-          </Typography>
+          <Typography variant='body1'>{dayData.description}</Typography>
         </Paper>
       )}
 
@@ -136,12 +148,12 @@ const DayItineraryPage: React.FC = () => {
       {dayData.tags && dayData.tags.length > 0 && (
         <Box sx={{ mb: 3, display: 'flex', flexWrap: 'wrap', gap: 1 }}>
           {dayData.tags.map((tag, index) => (
-            <Chip 
-              key={index} 
-              label={tag} 
-              size="small" 
-              color="primary" 
-              variant="outlined"
+            <Chip
+              key={index}
+              label={tag}
+              size='small'
+              color='primary'
+              variant='outlined'
             />
           ))}
         </Box>
@@ -153,22 +165,31 @@ const DayItineraryPage: React.FC = () => {
           <List disablePadding>
             {dayData.activities.map((activity, index) => (
               <React.Fragment key={activity.id}>
-                <ListItem 
+                <ListItem
                   disablePadding
                   secondaryAction={
-                    activity.notes && activity.notes.length > 0 && (
-                      <IconButton 
-                        edge="end" 
-                        aria-label="expand"
+                    activity.notes &&
+                    activity.notes.length > 0 && (
+                      <IconButton
+                        edge='end'
+                        aria-label='expand'
                         onClick={() => handleToggleExpand(activity.id)}
                       >
-                        {expanded[activity.id] ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                        {expanded[activity.id] ? (
+                          <ExpandLessIcon />
+                        ) : (
+                          <ExpandMoreIcon />
+                        )}
                       </IconButton>
                     )
                   }
                 >
-                  <ListItemButton 
-                    onClick={() => activity.notes && activity.notes.length > 0 ? handleToggleExpand(activity.id) : null}
+                  <ListItemButton
+                    onClick={() =>
+                      activity.notes && activity.notes.length > 0
+                        ? handleToggleExpand(activity.id)
+                        : null
+                    }
                     sx={{
                       '&:hover': {
                         backgroundColor: 'action.hover',
@@ -182,30 +203,33 @@ const DayItineraryPage: React.FC = () => {
                     </ListItemAvatar>
                     <ListItemText
                       primary={
-                        <Typography 
-                          variant="subtitle1" 
-                          component="div" 
-                          fontWeight="medium"
-                          sx={{ 
-                            display: 'flex', 
+                        <Typography
+                          variant='subtitle1'
+                          component='div'
+                          fontWeight='medium'
+                          sx={{
+                            display: 'flex',
                             alignItems: 'center',
-                            gap: 1
+                            gap: 1,
                           }}
                         >
-                          <Box component="span" sx={{ 
-                            fontWeight: 'bold',
-                            color: 'primary.main',
-                            minWidth: 50,
-                            display: 'inline-block'
-                          }}>
+                          <Box
+                            component='span'
+                            sx={{
+                              fontWeight: 'bold',
+                              color: 'primary.main',
+                              minWidth: 50,
+                              display: 'inline-block',
+                            }}
+                          >
                             {activity.time}
                           </Box>
                           {activity.title}
                           {activity.isHighlight && (
-                            <Chip 
-                              label="Destaque" 
-                              size="small" 
-                              color="secondary"
+                            <Chip
+                              label='Destaque'
+                              size='small'
+                              color='secondary'
                               sx={{ ml: 1, height: 20, fontSize: '0.6rem' }}
                             />
                           )}
@@ -215,19 +239,31 @@ const DayItineraryPage: React.FC = () => {
                         <React.Fragment>
                           {activity.description && (
                             <Typography
-                              component="span"
-                              variant="body2"
-                              color="text.primary"
-                              display="block"
+                              component='span'
+                              variant='body2'
+                              color='text.primary'
+                              display='block'
                               sx={{ mt: 0.5 }}
                             >
                               {activity.description}
                             </Typography>
                           )}
                           {activity.location && (
-                            <Box sx={{ display: 'flex', alignItems: 'center', mt: 0.5 }}>
-                              <PlaceIcon fontSize="small" sx={{ mr: 0.5, color: 'text.secondary' }} />
-                              <Typography variant="caption" color="text.secondary">
+                            <Box
+                              sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                mt: 0.5,
+                              }}
+                            >
+                              <PlaceIcon
+                                fontSize='small'
+                                sx={{ mr: 0.5, color: 'text.secondary' }}
+                              />
+                              <Typography
+                                variant='caption'
+                                color='text.secondary'
+                              >
                                 {activity.location}
                               </Typography>
                             </Box>
@@ -238,16 +274,20 @@ const DayItineraryPage: React.FC = () => {
                     />
                   </ListItemButton>
                 </ListItem>
-                
+
                 {/* Notas expandíveis */}
                 {activity.notes && activity.notes.length > 0 && (
-                  <Collapse in={expanded[activity.id]} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
+                  <Collapse
+                    in={expanded[activity.id]}
+                    timeout='auto'
+                    unmountOnExit
+                  >
+                    <List component='div' disablePadding>
                       {activity.notes.map((note, noteIndex) => (
                         <ListItem key={noteIndex} sx={{ pl: 9, pr: 4, py: 1 }}>
-                          <Typography 
-                            variant="body2" 
-                            color="text.secondary"
+                          <Typography
+                            variant='body2'
+                            color='text.secondary'
                             sx={{
                               display: 'flex',
                               alignItems: 'flex-start',
@@ -257,8 +297,8 @@ const DayItineraryPage: React.FC = () => {
                                 fontWeight: 'bold',
                                 display: 'inline-block',
                                 width: '1em',
-                                ml: '-1em'
-                              }
+                                ml: '-1em',
+                              },
                             }}
                           >
                             {note}
@@ -268,8 +308,10 @@ const DayItineraryPage: React.FC = () => {
                     </List>
                   </Collapse>
                 )}
-                
-                {index < dayData.activities.length - 1 && <Divider component="li" />}
+
+                {index < dayData.activities.length - 1 && (
+                  <Divider component='li' />
+                )}
               </React.Fragment>
             ))}
           </List>
@@ -278,27 +320,31 @@ const DayItineraryPage: React.FC = () => {
 
       {/* Navegação entre dias */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 4 }}>
-        <Button 
+        <Button
           startIcon={<ArrowBackIcon />}
           onClick={() => {
             const currentDay = parseInt(dayId || '1', 10);
             if (currentDay > 1) {
               navigate(`/day/${currentDay - 1}`);
-              window.scrollTo(0, 0);
+              if (typeof window !== 'undefined') {
+                window.scrollTo(0, 0);
+              }
             }
           }}
           disabled={parseInt(dayId || '1', 10) <= 1}
         >
           Dia Anterior
         </Button>
-        
-        <Button 
+
+        <Button
           endIcon={<ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />}
           onClick={() => {
             const currentDay = parseInt(dayId || '1', 10);
             if (currentDay < itineraryData.length) {
               navigate(`/day/${currentDay + 1}`);
-              window.scrollTo(0, 0);
+              if (typeof window !== 'undefined') {
+                window.scrollTo(0, 0);
+              }
             }
           }}
           disabled={parseInt(dayId || '1', 10) >= itineraryData.length}
