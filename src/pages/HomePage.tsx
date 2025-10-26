@@ -310,36 +310,45 @@ const HomePage: React.FC = () => {
         </Typography>
         <Box
           sx={{
-            display: 'grid',
-            gridTemplateColumns: {
-              xs: '1fr',
-              sm: 'repeat(2, 1fr)',
-              md: 'repeat(4, 1fr)',
-            },
-            gap: 2,
+            display: 'flex',
             justifyContent: 'center',
-            maxWidth: 800,
+            gap: 1.5,
+            flexWrap: 'nowrap',
+            maxWidth: 1000,
             mx: 'auto',
+            '@media (max-width: 1200px)': {
+              gap: 1,
+            },
+            '@media (max-width: 900px)': {
+              flexWrap: 'wrap',
+              gap: 1.5,
+            },
           }}
         >
           <Button
             variant='contained'
             color='secondary'
-            size='large'
+            size='medium'
             onClick={() => navigate('/day/1')}
             sx={{
-              px: 4,
-              py: 1.5,
-              fontSize: '1.1rem',
+              px: 2.5,
+              py: 1.2,
+              fontSize: '0.95rem',
               fontWeight: 'bold',
               textTransform: 'none',
               borderRadius: 2,
               boxShadow: 3,
+              minWidth: 'auto',
+              flex: '1 1 auto',
               '&:hover': {
                 transform: 'translateY(-2px)',
                 boxShadow: 4,
               },
               transition: 'all 0.2s',
+              '@media (max-width: 1200px)': {
+                px: 2,
+                fontSize: '0.9rem',
+              },
             }}
           >
             Ver Roteiro Completo
@@ -347,17 +356,19 @@ const HomePage: React.FC = () => {
           <Button
             variant='outlined'
             color='inherit'
-            size='large'
+            size='medium'
             onClick={() => setAuthModalOpen(true)}
             sx={{
-              px: 4,
-              py: 1.5,
-              fontSize: '1.1rem',
+              px: 2.5,
+              py: 1.2,
+              fontSize: '0.95rem',
               fontWeight: 'bold',
               textTransform: 'none',
               borderRadius: 2,
               borderColor: 'white',
               color: 'white',
+              minWidth: 'auto',
+              flex: '1 1 auto',
               '&:hover': {
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 borderColor: 'white',
@@ -365,6 +376,10 @@ const HomePage: React.FC = () => {
                 boxShadow: 4,
               },
               transition: 'all 0.2s',
+              '@media (max-width: 1200px)': {
+                px: 2,
+                fontSize: '0.9rem',
+              },
             }}
           >
             📄 Documentações
@@ -373,18 +388,20 @@ const HomePage: React.FC = () => {
           <Button
             variant='outlined'
             color='inherit'
-            size='large'
+            size='medium'
             startIcon={<DownloadIcon />}
             onClick={handleDownloadRoteiro}
             sx={{
-              px: 4,
-              py: 1.5,
-              fontSize: '1.1rem',
+              px: 2.5,
+              py: 1.2,
+              fontSize: '0.95rem',
               fontWeight: 'bold',
               textTransform: 'none',
               borderRadius: 2,
               borderColor: 'white',
               color: 'white',
+              minWidth: 'auto',
+              flex: '1 1 auto',
               '&:hover': {
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 borderColor: 'white',
@@ -392,6 +409,10 @@ const HomePage: React.FC = () => {
                 boxShadow: 4,
               },
               transition: 'all 0.2s',
+              '@media (max-width: 1200px)': {
+                px: 2,
+                fontSize: '0.9rem',
+              },
             }}
           >
             Baixar Roteiro
@@ -400,24 +421,30 @@ const HomePage: React.FC = () => {
           <Button
             variant='outlined'
             color='inherit'
-            size='large'
+            size='medium'
             onClick={() => navigate('/trip-end')}
             sx={{
-              px: 4,
-              py: 1.5,
-              fontSize: '1.1rem',
+              px: 2.5,
+              py: 1.2,
+              fontSize: '0.95rem',
               fontWeight: 'bold',
               textTransform: 'none',
               borderRadius: 2,
               borderColor: 'white',
               color: 'white',
               background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4)',
+              minWidth: 'auto',
+              flex: '1 1 auto',
               '&:hover': {
                 background: 'linear-gradient(45deg, #FF5252, #26A69A)',
                 transform: 'translateY(-2px)',
                 boxShadow: 4,
               },
               transition: 'all 0.2s',
+              '@media (max-width: 1200px)': {
+                px: 2,
+                fontSize: '0.9rem',
+              },
             }}
           >
             🎉 Página Final
