@@ -1,14 +1,16 @@
 import { Box, Button, Card, CardContent, Typography } from '@mui/material';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import AuthModal from '../components/common/AuthModal';
 
 // Assets
 import orlandoImage from '../assets/orlando-skyline.webp';
 
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
+  const [authModalOpen, setAuthModalOpen] = useState(false);
   const startDate = new Date('2025-11-20');
   const endDate = new Date('2025-12-04');
 
@@ -19,6 +21,13 @@ const HomePage: React.FC = () => {
   const daysUntilTrip = Math.ceil(
     (startDate.getTime() - new Date().getTime()) / (1000 * 3600 * 24)
   );
+
+  const handleOpenDocumentations = () => {
+    window.open(
+      'https://drive.google.com/drive/folders/1cqBSgKeIIqoob_qCcUycgfUcWWQh6mV5?usp=sharing',
+      '_blank'
+    );
+  };
 
   return (
     <Box>
@@ -289,29 +298,70 @@ const HomePage: React.FC = () => {
           incluindo horários, atrações imperdíveis e dicas especiais para cada
           dia.
         </Typography>
-        <Button
-          variant='contained'
-          color='secondary'
-          size='large'
-          onClick={() => navigate('/day/1')}
+        <Box
           sx={{
-            px: 4,
-            py: 1.5,
-            fontSize: '1.1rem',
-            fontWeight: 'bold',
-            textTransform: 'none',
-            borderRadius: 2,
-            boxShadow: 3,
-            '&:hover': {
-              transform: 'translateY(-2px)',
-              boxShadow: 4,
-            },
-            transition: 'all 0.2s',
+            display: 'flex',
+            gap: 2,
+            justifyContent: 'center',
+            flexWrap: 'wrap',
           }}
         >
-          Ver Roteiro Completo
-        </Button>
+          <Button
+            variant='contained'
+            color='secondary'
+            size='large'
+            onClick={() => navigate('/day/1')}
+            sx={{
+              px: 4,
+              py: 1.5,
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
+              textTransform: 'none',
+              borderRadius: 2,
+              boxShadow: 3,
+              '&:hover': {
+                transform: 'translateY(-2px)',
+                boxShadow: 4,
+              },
+              transition: 'all 0.2s',
+            }}
+          >
+            Ver Roteiro Completo
+          </Button>
+          <Button
+            variant='outlined'
+            color='inherit'
+            size='large'
+            onClick={() => setAuthModalOpen(true)}
+            sx={{
+              px: 4,
+              py: 1.5,
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
+              textTransform: 'none',
+              borderRadius: 2,
+              borderColor: 'white',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                borderColor: 'white',
+                transform: 'translateY(-2px)',
+                boxShadow: 4,
+              },
+              transition: 'all 0.2s',
+            }}
+          >
+            📄 Documentações
+          </Button>
+        </Box>
       </Box>
+
+      {/* Modal de Autenticação */}
+      <AuthModal
+        open={authModalOpen}
+        onClose={() => setAuthModalOpen(false)}
+        onSuccess={handleOpenDocumentations}
+      />
     </Box>
   );
 };
