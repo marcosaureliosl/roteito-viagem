@@ -130,6 +130,15 @@ const TripEndPage: React.FC = () => {
     }
   };
 
+  const handleDownloadRoteiro = () => {
+    const link = document.createElement('a');
+    link.href = '/roteiro/roteiro-final-site.pdf';
+    link.download = 'roteiro-orlando-2025.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -478,6 +487,7 @@ const TripEndPage: React.FC = () => {
               <Button
                 variant='contained'
                 startIcon={<DownloadIcon />}
+                onClick={handleDownloadRoteiro}
                 sx={{
                   bgcolor: '#2196F3',
                   '&:hover': { bgcolor: '#1976D2' },

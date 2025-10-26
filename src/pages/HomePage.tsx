@@ -1,3 +1,4 @@
+import { Download as DownloadIcon } from '@mui/icons-material';
 import { Box, Button, Card, CardContent, Typography } from '@mui/material';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
@@ -27,6 +28,15 @@ const HomePage: React.FC = () => {
       'https://drive.google.com/drive/folders/1cqBSgKeIIqoob_qCcUycgfUcWWQh6mV5?usp=sharing',
       '_blank'
     );
+  };
+
+  const handleDownloadRoteiro = () => {
+    const link = document.createElement('a');
+    link.href = '/roteiro/roteiro-final-site.pdf';
+    link.download = 'roteiro-orlando-2025.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -304,11 +314,11 @@ const HomePage: React.FC = () => {
             gridTemplateColumns: {
               xs: '1fr',
               sm: 'repeat(2, 1fr)',
-              md: 'repeat(3, 1fr)',
+              md: 'repeat(4, 1fr)',
             },
             gap: 2,
             justifyContent: 'center',
-            maxWidth: 600,
+            maxWidth: 800,
             mx: 'auto',
           }}
         >
@@ -359,6 +369,34 @@ const HomePage: React.FC = () => {
           >
             📄 Documentações
           </Button>
+
+          <Button
+            variant='outlined'
+            color='inherit'
+            size='large'
+            startIcon={<DownloadIcon />}
+            onClick={handleDownloadRoteiro}
+            sx={{
+              px: 4,
+              py: 1.5,
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
+              textTransform: 'none',
+              borderRadius: 2,
+              borderColor: 'white',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                borderColor: 'white',
+                transform: 'translateY(-2px)',
+                boxShadow: 4,
+              },
+              transition: 'all 0.2s',
+            }}
+          >
+            Baixar Roteiro
+          </Button>
+
           <Button
             variant='outlined'
             color='inherit'
