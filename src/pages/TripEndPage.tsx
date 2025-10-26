@@ -26,12 +26,14 @@ import {
 import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ReunioesModal from '../components/common/ReunioesModal';
 
 const TripEndPage: React.FC = () => {
   const navigate = useNavigate();
   const [showCelebration, setShowCelebration] = useState(false);
   const [showStats, setShowStats] = useState(false);
   const [showMemories, setShowMemories] = useState(false);
+  const [reunioesModalOpen, setReunioesModalOpen] = useState(false);
 
   useEffect(() => {
     // Trigger celebration animation on page load
@@ -394,28 +396,59 @@ const TripEndPage: React.FC = () => {
           {/* Memories Section */}
           <motion.div variants={itemVariants}>
             <Box sx={{ textAlign: 'center', mb: 4 }}>
-              <Button
-                variant='contained'
-                size='large'
-                startIcon={<CameraIcon />}
-                onClick={() => setShowMemories(true)}
+              <Box
                 sx={{
-                  bgcolor: 'rgba(255, 255, 255, 0.2)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(255, 255, 255, 0.3)',
-                  color: 'white',
-                  px: 4,
-                  py: 1.5,
-                  fontSize: '1.1rem',
-                  '&:hover': {
-                    bgcolor: 'rgba(255, 255, 255, 0.3)',
-                    transform: 'translateY(-2px)',
-                  },
-                  transition: 'all 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: 2,
+                  mb: 3,
                 }}
               >
-                Reviver Memórias Especiais
-              </Button>
+                <Button
+                  variant='contained'
+                  size='large'
+                  startIcon={<CameraIcon />}
+                  onClick={() => setShowMemories(true)}
+                  sx={{
+                    bgcolor: 'rgba(255, 255, 255, 0.2)',
+                    backdropFilter: 'blur(10px)',
+                    border: '1px solid rgba(255, 255, 255, 0.3)',
+                    color: 'white',
+                    px: 4,
+                    py: 1.5,
+                    fontSize: '1.1rem',
+                    '&:hover': {
+                      bgcolor: 'rgba(255, 255, 255, 0.3)',
+                      transform: 'translateY(-2px)',
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  Reviver Memórias Especiais
+                </Button>
+
+                <Button
+                  variant='outlined'
+                  size='large'
+                  onClick={() => setReunioesModalOpen(true)}
+                  sx={{
+                    borderColor: 'rgba(255, 255, 255, 0.5)',
+                    color: 'white',
+                    px: 3,
+                    py: 1.5,
+                    fontSize: '1rem',
+                    '&:hover': {
+                      bgcolor: 'rgba(255, 255, 255, 0.1)',
+                      borderColor: 'white',
+                      transform: 'translateY(-2px)',
+                    },
+                    transition: 'all 0.3s ease',
+                  }}
+                >
+                  📸 Making Off
+                </Button>
+              </Box>
             </Box>
           </motion.div>
 
@@ -596,6 +629,12 @@ const TripEndPage: React.FC = () => {
           </Button>
         </DialogActions>
       </Dialog>
+
+      {/* Modal das Reuniões */}
+      <ReunioesModal
+        open={reunioesModalOpen}
+        onClose={() => setReunioesModalOpen(false)}
+      />
     </Box>
   );
 };

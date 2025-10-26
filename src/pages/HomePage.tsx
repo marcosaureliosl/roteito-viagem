@@ -300,10 +300,16 @@ const HomePage: React.FC = () => {
         </Typography>
         <Box
           sx={{
-            display: 'flex',
+            display: 'grid',
+            gridTemplateColumns: {
+              xs: '1fr',
+              sm: 'repeat(2, 1fr)',
+              md: 'repeat(3, 1fr)',
+            },
             gap: 2,
             justifyContent: 'center',
-            flexWrap: 'wrap',
+            maxWidth: 600,
+            mx: 'auto',
           }}
         >
           <Button
@@ -352,6 +358,31 @@ const HomePage: React.FC = () => {
             }}
           >
             📄 Documentações
+          </Button>
+          <Button
+            variant='outlined'
+            color='inherit'
+            size='large'
+            onClick={() => navigate('/trip-end')}
+            sx={{
+              px: 4,
+              py: 1.5,
+              fontSize: '1.1rem',
+              fontWeight: 'bold',
+              textTransform: 'none',
+              borderRadius: 2,
+              borderColor: 'white',
+              color: 'white',
+              background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4)',
+              '&:hover': {
+                background: 'linear-gradient(45deg, #FF5252, #26A69A)',
+                transform: 'translateY(-2px)',
+                boxShadow: 4,
+              },
+              transition: 'all 0.2s',
+            }}
+          >
+            🎉 Página Final
           </Button>
         </Box>
       </Box>
