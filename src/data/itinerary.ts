@@ -975,10 +975,17 @@ export const itineraryData: DayItinerary[] = [
   {
     id: 'day8',
     date: '2025-11-27',
-    title: 'Thanksgiving Day - Disney Resort Hopping & T-Rex',
+    title: 'Quinta-feira - Thanksgiving Day',
     description:
-      'Dia de ação de graças com Disney Resort Hopping, Skyliner Experience e jantar no T-Rex',
-    tags: ['thanksgiving', 'disney', 'resort-hopping', 'skyliner', 't-rex'],
+      "Dia de ação de graças com T-Rex Almoço, Black Friday Shopping, Disney Resort Hopping e Chip'n Dale Show",
+    tags: [
+      'thanksgiving',
+      'disney',
+      'resort-hopping',
+      'skyliner',
+      't-rex',
+      'black-friday',
+    ],
     activities: [
       {
         id: 'morning-prayer',
@@ -1012,17 +1019,47 @@ export const itineraryData: DayItinerary[] = [
         ],
       },
       {
-        id: 'departure-disney',
+        id: 'departure-trex',
+        time: '11:30',
+        title: '🚗 Saída para o T-Rex Restaurant',
+        description: 'Deslocamento para o almoço no T-Rex',
+        location: 'Kissimmee para Disney Springs',
+        notes: [
+          'Saída do condomínio às 11:30',
+          'Tempo de deslocamento: ~25 minutos para Disney Springs',
+          'Chegada prevista: 11:55-12:00',
+        ],
+      },
+      {
+        id: 'trex-lunch',
+        time: '12:30',
+        title: '🦕 ALMOÇO no T-Rex Restaurant',
+        description: 'Experiência gastronômica temática com dinossauros',
+        location: 'T-Rex Restaurant - Disney Springs',
+        wazeUrl:
+          'https://waze.com/ul?q=T-Rex%20Restaurant%20Disney%20Springs%20Orlando%20FL',
+        notes: [
+          'Endereço: 1676 E Buena Vista Dr, Lake Buena Vista, FL 32830',
+          'Restaurante temático com dinossauros animatrônicos',
+          'Ambiente familiar e divertido',
+          'Reservas: 355298326381 / 355298331112',
+          '📸 Foto com os dinossauros do restaurante',
+          'Tempo no restaurante: 12:30-14:00 (~1h30)',
+        ],
+        isHighlight: true,
+      },
+      {
+        id: 'parking-disney-springs',
         time: '14:00',
-        title: '🚗 Saída para Disney Springs',
-        description: 'Início do Resort Hopping Disney',
+        title: '🅿️ Estacionamento no Disney Springs',
+        description: 'Após almoço - Estacione no Orange Garage',
         location: 'Disney Springs - Orange Garage',
         wazeUrl:
           'https://waze.com/ul?q=Disney%20Springs%20Orange%20Garage%20Orlando%20FL',
         notes: [
           'Endereço: 1486 Buena Vista Dr, Orlando, FL 32830',
           'Estacionamento gratuito no Orange Garage',
-          'Deixar o carro aqui - transporte Disney gratuito',
+          'Deixar o carro aqui - transporte Disney é gratuito',
         ],
         isHighlight: true,
       },
@@ -1084,34 +1121,6 @@ export const itineraryData: DayItinerary[] = [
           '✨ Passeio e jantar no BoardWalk',
           '🎭 Artistas de rua, lojas e vista para o lago Crescent',
         ],
-      },
-      {
-        id: 'boardwalk-dinner',
-        time: '18:30',
-        title: '🍽️ Jantar no BoardWalk',
-        description: 'Opções de jantar no BoardWalk',
-        notes: [
-          '🍝 Trattoria al Forno – massas italianas',
-          '🍔 Big River Grille – hambúrguer artesanal',
-          'BoardWalk Deli – opção rápida e econômica',
-        ],
-      },
-      {
-        id: 'trex-dinner',
-        time: '19:30',
-        title: '🦕 Jantar no T-Rex Restaurant',
-        description: 'Experiência gastronômica temática com dinossauros',
-        location: 'T-Rex Restaurant - Disney Springs',
-        wazeUrl:
-          'https://waze.com/ul?q=T-Rex%20Restaurant%20Disney%20Springs%20Orlando%20FL',
-        notes: [
-          'Endereço: 1676 E Buena Vista Dr, Lake Buena Vista, FL 32830',
-          'Restaurante temático com dinossauros animatrônicos',
-          'Ambiente familiar e divertido',
-          'Reserva: 355298326381 / 355298331112',
-          '📸 Foto com os dinossauros do restaurante',
-        ],
-        isHighlight: true,
       },
       {
         id: 'chip-dale-show',
@@ -1176,6 +1185,15 @@ export const itineraryData: DayItinerary[] = [
           'Descansar para o dia intenso de amanhã',
         ],
       },
+    ],
+    notes: [
+      '📋 Cronograma Resumido:',
+      '07h00 – Saída de Orlando',
+      '10h45-11h15 – Boca Raton (South Inlet Park)',
+      '11h45-12h45 – Fort Lauderdale (almoço + praia)',
+      '13h45-14h00 – Chegada no Quality Inn Miami',
+      '16h00-17h00 – Troca dos carros',
+      '18h30 – NBA Game (Miami Heat vs LA Clippers)',
     ],
   },
   {
