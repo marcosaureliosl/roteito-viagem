@@ -8,6 +8,7 @@ export interface Activity {
   isHighlight?: boolean;
   imageUrl?: string;
   mapUrl?: string;
+  wazeUrl?: string;
 }
 
 export interface DayItinerary {
@@ -32,7 +33,7 @@ export const itineraryData: DayItinerary[] = [
         time: '17:00',
         title: 'Chegada no Aeroporto de Miami (MIA)',
         description: 'Voo de chegada na quinta-feira',
-        location: 'Miami International Airport (MIA)'
+        location: 'Miami International Airport (MIA)',
       },
       {
         id: 'car-rental',
@@ -40,18 +41,21 @@ export const itineraryData: DayItinerary[] = [
         title: 'Retirada do carro',
         description: 'Empresa: AVIS BUDGET GROUP',
         location: 'Aeroporto de Miami',
-        notes: ['Documentação necessária: CNH internacional, cartão de crédito no nome do condutor']
+        wazeUrl: 'https://waze.com/ul?q=Miami%20International%20Airport%20MIA',
+        notes: [
+          'Documentação necessária: CNH internacional, cartão de crédito no nome do condutor',
+        ],
       },
       {
         id: 'departure-miami',
         time: '20:30',
         title: 'Saída de Miami para Orlando',
-        description: 'Início da viagem pela Florida\'s Turnpike',
+        description: "Início da viagem pela Florida's Turnpike",
         notes: [
-          'Rota: Florida\'s Turnpike',
+          "Rota: Florida's Turnpike",
           'Pedágios: aproximadamente $23 no total',
-          'Verificar formas de pagamento de pedágios'
-        ]
+          'Verificar formas de pagamento de pedágios',
+        ],
       },
       {
         id: 'dinner-stop',
@@ -61,8 +65,8 @@ export const itineraryData: DayItinerary[] = [
         notes: [
           'Opção 1: Pompano Beach Service Plaza',
           'Opção 2: West Palm Beach Service Plaza',
-          'Obs.: Comprar algo para o café da manhã'
-        ]
+          'Obs.: Comprar algo para o café da manhã',
+        ],
       },
       {
         id: 'arrival-home',
@@ -70,18 +74,21 @@ export const itineraryData: DayItinerary[] = [
         title: 'Chegada na acomodação',
         description: 'Storey Lake Home - 4807 Memories Ln, Kissimmee',
         location: 'Storey Lake Home, SLT4 4807M, 4807 Memories Ln, Kissimmee',
+        wazeUrl:
+          'https://waze.com/ul?q=4807%20Memories%20Ln%2C%20Kissimmee%2C%20FL',
         notes: [
           'Recebemos um voucher com a Fernanda',
-          'Entrada da casa conforme instruções do voucher'
-        ]
-      }
-    ]
+          'Entrada da casa conforme instruções do voucher',
+        ],
+      },
+    ],
   },
   {
     id: 'day2',
     date: '2025-11-21',
     title: 'Sexta-feira - Compras e Disney Springs',
-    description: 'Primeiro dia completo: café da manhã, compras e passeio no Disney Springs',
+    description:
+      'Primeiro dia completo: café da manhã, compras e passeio no Disney Springs',
     activities: [
       {
         id: 'breakfast',
@@ -90,26 +97,42 @@ export const itineraryData: DayItinerary[] = [
         description: 'Café da manhã na casa',
         notes: [
           'Cada casal levar: 2 pães de cuscuz / 2 cafés',
-          'Itens trazidos do Brasil'
-        ]
+          'Itens trazidos do Brasil',
+        ],
       },
       {
-        id: 'shopping',
+        id: 'dollar-tree',
         time: '10:00',
-        title: 'Compras para a viagem',
-        description: 'Compras para sexta, sábado e domingo',
-        location: 'Dollar Tree e Walmart Supercenter',
+        title: 'Dollar Tree - Itens básicos e souvenirs',
+        description: 'Compras de itens básicos e lembrancinhas',
+        location: 'Dollar Tree - 2316 W Vine St, Kissimmee, FL 34741',
+        wazeUrl:
+          'https://waze.com/ul?q=2316%20W%20Vine%20St%2C%20Kissimmee%2C%20FL%2034741',
         notes: [
-          'Dollar Tree - itens básicos e souvenirs',
-          'Walmart Supercenter - 3250 Vineland Rd, Kissimmee, FL 34746',
-          'Comprar mantimentos para os próximos dias'
-        ]
+          'Itens básicos e souvenirs',
+          'Preços em dólar',
+          'Ótimo para lembrancinhas baratas',
+        ],
+      },
+      {
+        id: 'walmart-shopping',
+        time: '10:30',
+        title: 'Walmart Supercenter - Mantimentos',
+        description: 'Compras de mantimentos para os próximos dias',
+        location: 'Walmart Supercenter - 3250 Vineland Rd, Kissimmee, FL 34746',
+        wazeUrl:
+          'https://waze.com/ul?q=3250%20Vineland%20Rd%2C%20Kissimmee%2C%20FL%2034746',
+        notes: [
+          'Comprar mantimentos para sexta, sábado e domingo',
+          'Supermercado completo',
+          'Preços competitivos',
+        ],
       },
       {
         id: 'lunch',
         time: '13:00',
         title: 'Almoço em casa',
-        description: 'Descanso após as compras'
+        description: 'Descanso após as compras',
       },
       {
         id: 'disney-springs',
@@ -117,12 +140,13 @@ export const itineraryData: DayItinerary[] = [
         title: 'Disney Springs - Passeio da tarde',
         description: 'Primeiro passeio nos parques Disney',
         location: 'Disney Springs',
+        wazeUrl: 'https://waze.com/ul?q=Disney%20Springs%20Orlando%20FL',
         notes: [
           'Distância: 25 minutos da acomodação',
           'Área de compras, restaurantes e entretenimento',
-          'Entrada gratuita'
+          'Entrada gratuita',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'dinner',
@@ -130,15 +154,17 @@ export const itineraryData: DayItinerary[] = [
         title: 'Jantar no Chicken Guy!',
         description: 'Restaurante do chef Guy Fieri',
         location: 'Chicken Guy! - Disney Springs',
-        isHighlight: true
+        wazeUrl:
+          'https://waze.com/ul?q=Chicken%20Guy%20Disney%20Springs%20Orlando%20FL',
+        isHighlight: true,
       },
       {
         id: 'return',
         time: '21:30',
         title: 'Retorno para casa',
-        description: 'Fim do primeiro dia de atividades'
-      }
-    ]
+        description: 'Fim do primeiro dia de atividades',
+      },
+    ],
   },
   {
     id: 'day3',
@@ -152,30 +178,31 @@ export const itineraryData: DayItinerary[] = [
         time: '06:45',
         title: 'Estacionamento (TTC)',
         description: 'Chegar cedo para aproveitar o dia',
-        location: 'Transportation and Ticket Center'
+        location: 'Transportation and Ticket Center',
+        wazeUrl:
+          'https://waze.com/ul?q=Magic%20Kingdom%20Transportation%20and%20Ticket%20Center%20Orlando%20FL',
       },
       {
         id: 'virtual-queue',
         time: '07:00',
         title: 'Fila virtual - My Disney Experience',
         description: 'Reservar atrações pelo app',
-        notes: [
-          'Tron Lightcycle Run',
-          'Tiana\'s Bayou Adventure'
-        ]
+        notes: ['Tron Lightcycle Run', "Tiana's Bayou Adventure"],
       },
       {
         id: 'park-gates',
         time: '07:30',
         title: 'Portões do parque',
-        description: 'Aguardar abertura oficial'
+        description: 'Aguardar abertura oficial',
       },
       {
         id: 'park-entry',
         time: '08:00',
         title: 'Entrada pelo Monorail',
         description: 'Entrada no Magic Kingdom',
-        notes: ['📸 Checkpoint 1: Foto na entrada da Main Street U.S.A. com o Castelo da Cinderela ao fundo']
+        notes: [
+          '📸 Checkpoint 1: Foto na entrada da Main Street U.S.A. com o Castelo da Cinderela ao fundo',
+        ],
       },
       {
         id: 'tomorrowland-morning',
@@ -185,11 +212,11 @@ export const itineraryData: DayItinerary[] = [
         notes: [
           'Tron Lightcycle Run (fila virtual)',
           'Space Mountain',
-          'Buzz Lightyear\'s Space Ranger Spin',
+          "Buzz Lightyear's Space Ranger Spin",
           '📸 Checkpoint 2: Foto com Buzz Lightyear',
-          'PeopleMover (opcional)'
+          'PeopleMover (opcional)',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'fantasyland',
@@ -198,18 +225,18 @@ export const itineraryData: DayItinerary[] = [
         description: 'Área das princesas e contos de fada',
         notes: [
           'Seven Dwarfs Mine Train',
-          'Peter Pan\'s Flight',
+          "Peter Pan's Flight",
           'Under the Sea – Journey of the Little Mermaid',
-          '📸 Checkpoint 3: Foto com Ariel no Ariel\'s Grotto',
+          "📸 Checkpoint 3: Foto com Ariel no Ariel's Grotto",
           'The Many Adventures of Winnie the Pooh',
           'Dumbo the Flying Elephant (opcional)',
           '📸 Checkpoint 4: Foto no Dumbo voando',
           'Mad Tea Party (opcional)',
-          'it\'s a small world (opcional)',
+          "it's a small world (opcional)",
           '📸 Checkpoint 5: Foto atrás do Castelo da Cinderela (lado Fantasyland)',
-          '📸 Checkpoint 6: Foto no Carrossel Prince Charming'
+          '📸 Checkpoint 6: Foto no Carrossel Prince Charming',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'adventureland',
@@ -218,8 +245,8 @@ export const itineraryData: DayItinerary[] = [
         description: 'Aventuras piratas e selva',
         notes: [
           'Pirates of the Caribbean',
-          '📸 Checkpoint 7: Entrada com cenário pirata + Jack Sparrow'
-        ]
+          '📸 Checkpoint 7: Entrada com cenário pirata + Jack Sparrow',
+        ],
       },
       {
         id: 'frontierland',
@@ -229,17 +256,17 @@ export const itineraryData: DayItinerary[] = [
         notes: [
           'Big Thunder Mountain Railroad',
           '📸 Checkpoint 8: Foto no cenário Velho Oeste',
-          'Tiana\'s Bayou Adventure (fila virtual ou Lightning Lane)',
-          '📸 Checkpoint 9: Foto na frente da nova atração da Tiana'
+          "Tiana's Bayou Adventure (fila virtual ou Lightning Lane)",
+          '📸 Checkpoint 9: Foto na frente da nova atração da Tiana',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'lunch',
         time: '13:00',
         title: '🍔 Almoço',
         description: 'Columbia Harbour House',
-        location: 'Liberty Square'
+        location: 'Liberty Square',
       },
       {
         id: 'liberty-square',
@@ -248,8 +275,8 @@ export const itineraryData: DayItinerary[] = [
         description: 'América colonial',
         notes: [
           'Haunted Mansion',
-          '📸 Checkpoint 10: Foto no portão da Mansão Assombrada'
-        ]
+          '📸 Checkpoint 10: Foto no portão da Mansão Assombrada',
+        ],
       },
       {
         id: 'parade',
@@ -257,15 +284,17 @@ export const itineraryData: DayItinerary[] = [
         title: 'Festival of Fantasy Parade',
         description: 'Desfile dos personagens Disney',
         location: 'Liberty Square',
-        notes: ['📸 Checkpoint 11: Fotos dos personagens (Mickey, princesas, Malévola dragão)'],
-        isHighlight: true
+        notes: [
+          '📸 Checkpoint 11: Fotos dos personagens (Mickey, princesas, Malévola dragão)',
+        ],
+        isHighlight: true,
       },
       {
         id: 'dinner',
         time: '18:00',
         title: 'Jantar rápido',
-        description: 'Casey\'s Corner',
-        location: 'Main Street U.S.A.'
+        description: "Casey's Corner",
+        location: 'Main Street U.S.A.',
       },
       {
         id: 'fireworks-prep',
@@ -274,25 +303,27 @@ export const itineraryData: DayItinerary[] = [
         description: 'Chegar 45 minutos antes do show',
         notes: [
           'Encontrar um bom local para assistir',
-          'Sugestão: sentar no chão estilo piquenique'
-        ]
+          'Sugestão: sentar no chão estilo piquenique',
+        ],
       },
       {
         id: 'fireworks',
         time: '20:00',
         title: '🌙 Show de fogos no Castelo',
         description: 'Encerramento mágico do dia',
-        notes: ['📸 Checkpoint 12: Foto sentados no chão, castelo iluminado ao fundo'],
-        isHighlight: true
+        notes: [
+          '📸 Checkpoint 12: Foto sentados no chão, castelo iluminado ao fundo',
+        ],
+        isHighlight: true,
       },
       {
         id: 'exit',
         time: '21:00',
         title: 'Saída pelo Ferry',
         description: 'Retorno ao estacionamento',
-        notes: ['📸 Checkpoint 13: Vista noturna do parque pelo lago']
-      }
-    ]
+        notes: ['📸 Checkpoint 13: Vista noturna do parque pelo lago'],
+      },
+    ],
   },
   {
     id: 'day4',
@@ -305,59 +336,67 @@ export const itineraryData: DayItinerary[] = [
         id: 'wake-up',
         time: '06:00',
         title: 'Acordar',
-        description: 'Preparação para o dia no SeaWorld'
+        description: 'Preparação para o dia no SeaWorld',
       },
       {
         id: 'departure-mass',
         time: '07:10',
         title: 'Saída para Missa',
-        description: 'Deslocamento para a igreja'
+        description: 'Deslocamento para a igreja',
       },
       {
         id: 'mass',
         time: '08:00',
         title: 'Missa',
         description: 'Participação na missa dominical',
-        location: '8300 Vineland Ave, Orlando, FL 32821, EUA'
+        location: '8300 Vineland Ave, Orlando, FL 32821, EUA',
       },
       {
         id: 'park-arrival',
         time: '09:30',
         title: 'Chegada no SeaWorld',
-        description: 'Entrada no parque, pegar mapa e organizar fila virtual dos shows',
+        description:
+          'Entrada no parque, pegar mapa e organizar fila virtual dos shows',
         location: 'SeaWorld Orlando',
-        notes: ['📸 Checkpoint 1: Foto na entrada do parque com o globo do SeaWorld'],
-        isHighlight: true
+        wazeUrl: 'https://waze.com/ul?q=SeaWorld%20Orlando%20FL',
+        notes: [
+          '📸 Checkpoint 1: Foto na entrada do parque com o globo do SeaWorld',
+        ],
+        isHighlight: true,
       },
       {
         id: 'pipeline',
         time: '10:00',
         title: '🎢 Pipeline',
         description: 'Montanha-russa de lançamento (altura mínima: 138cm)',
-        notes: ['📸 Checkpoint 2: Foto no letreiro da Pipeline (atração nova e icônica)'],
-        isHighlight: true
+        notes: [
+          '📸 Checkpoint 2: Foto no letreiro da Pipeline (atração nova e icônica)',
+        ],
+        isHighlight: true,
       },
       {
         id: 'ice-breaker',
         time: '10:30',
         title: '🎢 Ice Breaker',
         description: 'Montanha-russa temática ártica (altura mínima: 121cm)',
-        notes: ['📸 Checkpoint 3: Foto com os trilhos laranjas ao fundo']
+        notes: ['📸 Checkpoint 3: Foto com os trilhos laranjas ao fundo'],
       },
       {
         id: 'wild-arctic',
         time: '11:00',
         title: '🐻‍❄️ Wild Arctic',
         description: 'Simulação + animais árticos (altura mínima: 107cm)',
-        notes: ['📸 Checkpoint 4: Fotos com belugas e morsas no aquário']
+        notes: ['📸 Checkpoint 4: Fotos com belugas e morsas no aquário'],
       },
       {
         id: 'orca-encounter',
         time: '11:30',
         title: '🐋 Orca Encounter',
         description: 'Show das orcas - imperdível!',
-        notes: ['📸 Checkpoint 5: Foto do grupo nas arquibancadas + orcas saltando no fundo'],
-        isHighlight: true
+        notes: [
+          '📸 Checkpoint 5: Foto do grupo nas arquibancadas + orcas saltando no fundo',
+        ],
+        isHighlight: true,
       },
       {
         id: 'lunch-all-day',
@@ -366,37 +405,40 @@ export const itineraryData: DayItinerary[] = [
         description: 'Primeira refeição do plano All-Day Dining',
         notes: [
           'Restaurantes disponíveis:',
-          '• Voyager\'s Smokehouse',
-          '• Seafire Grill', 
+          "• Voyager's Smokehouse",
+          '• Seafire Grill',
           '• Lakeside Grill',
           '• Waterway Grill Café',
           '• Altitude Burgers',
           '• Expedition Café (Antártica)',
-          '• Captain Pete\'s Island Eats (Sesame Street Land)',
-          '📸 Checkpoint 13: Foto com a bandeja farta do All-Day Dining'
-        ]
+          "• Captain Pete's Island Eats (Sesame Street Land)",
+          '📸 Checkpoint 13: Foto com a bandeja farta do All-Day Dining',
+        ],
       },
       {
         id: 'infinity-falls',
         time: '13:30',
         title: '💦 Infinity Falls',
         description: 'Atração de água com quedas (altura mínima: 107cm)',
-        notes: ['📸 Checkpoint 6: Foto no bote molhado saindo da queda']
+        notes: ['📸 Checkpoint 6: Foto no bote molhado saindo da queda'],
       },
       {
         id: 'mako',
         time: '14:15',
         title: '🦈 Mako',
-        description: 'Montanha-russa mais alta da Flórida (altura mínima: 138cm)',
+        description:
+          'Montanha-russa mais alta da Flórida (altura mínima: 138cm)',
         notes: ['📸 Checkpoint 7: Foto no letreiro do tubarão na entrada'],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'shark-encounter',
         time: '15:00',
         title: '🦈 Shark Encounter',
         description: 'Túnel de tubarões - experiência única',
-        notes: ['📸 Checkpoint 8: Foto dentro do túnel de vidro com tubarões ao redor']
+        notes: [
+          '📸 Checkpoint 8: Foto dentro do túnel de vidro com tubarões ao redor',
+        ],
       },
       {
         id: 'dolphin-show',
@@ -404,35 +446,35 @@ export const itineraryData: DayItinerary[] = [
         title: '🐬 Dolphin Adventures',
         description: 'Show dos golfinhos (horários: 10h, 11h30, 13h, 15h, 17h)',
         notes: ['📸 Checkpoint 11: Foto dos golfinhos saltando no show'],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'penguin-trek',
         time: '16:00',
         title: '🐧 Penguin Trek',
         description: 'Atração familiar com tema antártico',
-        notes: ['📸 Checkpoint 9: Foto na frente do carrinho da atração']
+        notes: ['📸 Checkpoint 9: Foto na frente do carrinho da atração'],
       },
       {
         id: 'antarctica',
         time: '16:30',
         title: '🐧 Antarctica - Penguin Encounter',
         description: 'Encontro com pinguins reais',
-        notes: ['📸 Checkpoint 10: Foto com pinguins reais atrás do vidro']
+        notes: ['📸 Checkpoint 10: Foto com pinguins reais atrás do vidro'],
       },
       {
         id: 'manta',
         time: '17:00',
         title: '🐠 Manta',
         description: 'Montanha-russa voadora (altura mínima: 138cm)',
-        notes: ['📸 Checkpoint 12: Foto no letreiro/asa da manta na entrada']
+        notes: ['📸 Checkpoint 12: Foto no letreiro/asa da manta na entrada'],
       },
       {
         id: 'dinner-all-day',
         time: '18:00',
         title: '🍽️ Jantar - All-Day Dining',
         description: 'Segunda refeição do plano All-Day Dining',
-        notes: ['Escolher um dos restaurantes participantes']
+        notes: ['Escolher um dos restaurantes participantes'],
       },
       {
         id: 'extras',
@@ -441,19 +483,19 @@ export const itineraryData: DayItinerary[] = [
         description: 'Atrações adicionais conforme disponibilidade',
         notes: [
           '🐙 Kraken → 📸 letreiro icônico',
-          '🌊 Journey to Atlantis → 📸 saída da queda d\'água',
+          "🌊 Journey to Atlantis → 📸 saída da queda d'água",
           '🦭 Sea Lion Show → 📸 foto com os leões-marinhos',
           '🎪 Sesame Street Land',
-          '📸 Checkpoint 14: Foto com Elmo e Cookie Monster'
-        ]
+          '📸 Checkpoint 14: Foto com Elmo e Cookie Monster',
+        ],
       },
       {
         id: 'park-exit',
         time: '20:30',
         title: 'Saída do parque',
-        description: 'Fim do dia no SeaWorld Orlando'
-      }
-    ]
+        description: 'Fim do dia no SeaWorld Orlando',
+      },
+    ],
   },
   {
     id: 'day5',
@@ -466,22 +508,48 @@ export const itineraryData: DayItinerary[] = [
         id: 'breakfast',
         time: '08:00',
         title: 'Café da manhã',
-        description: 'Café da manhã tranquilo na casa'
+        description: 'Café da manhã tranquilo na casa',
       },
       {
-        id: 'morning-shopping',
+        id: 'ross-dress-less',
         time: '09:30',
-        title: '🛍️ Compras Matinais - Outlets Kissimmee',
-        description: 'Compras leves em lojas de departamento',
-        location: 'Região de Kissimmee - Irlo Bronson',
+        title: '🏪 Ross Dress for Less',
+        description: 'Compras de roupas e acessórios com desconto',
+        location: '5298 W Irlo Bronson Memorial Hwy, Kissimmee, FL 34746',
+        wazeUrl:
+          'https://waze.com/ul?q=5298%20W%20Irlo%20Bronson%20Memorial%20Hwy%2C%20Kissimmee%2C%20FL%2034746',
         notes: [
-          '🏪 Ross Dress for Less - 5298 W Irlo Bronson Memorial Hwy',
-          '🏪 Burlington Stores - 1217 W Irlo Bronson Memorial Hwy', 
-          '🏪 TJ Maxx - 2601 W Vine St',
-          'Todas as lojas ficam próximas entre si',
-          'Foco em roupas e acessórios com desconto'
+          'Roupas e acessórios com desconto',
+          'Primeira parada das compras matinais',
         ],
-        isHighlight: true
+        isHighlight: true,
+      },
+      {
+        id: 'burlington-stores',
+        time: '10:15',
+        title: '🏪 Burlington Stores',
+        description: 'Lojas de departamento com preços competitivos',
+        location: '1217 W Irlo Bronson Memorial Hwy, Kissimmee, FL 34741',
+        wazeUrl:
+          'https://waze.com/ul?q=1217%20W%20Irlo%20Bronson%20Memorial%20Hwy%2C%20Kissimmee%2C%20FL%2034741',
+        notes: [
+          'Roupas, calçados e acessórios',
+          'Próximo ao Ross Dress for Less',
+        ],
+      },
+      {
+        id: 'tj-maxx-kissimmee',
+        time: '11:00',
+        title: '🏪 TJ Maxx',
+        description: 'Marcas de grife com desconto',
+        location: '2601 W Vine St, Kissimmee, FL 34741',
+        wazeUrl:
+          'https://waze.com/ul?q=2601%20W%20Vine%20St%2C%20Kissimmee%2C%20FL%2034741',
+        notes: [
+          'Marcas de grife com desconto',
+          'Última parada das compras matinais',
+          'Todas as lojas ficam próximas entre si',
+        ],
       },
       {
         id: 'lunch-home',
@@ -491,48 +559,104 @@ export const itineraryData: DayItinerary[] = [
         notes: [
           'Tempo para relaxar após as compras',
           'Organizar as compras da manhã',
-          'Preparação para a tarde'
-        ]
+          'Preparação para a tarde',
+        ],
       },
       {
         id: 'rest-time',
         time: '13:30',
         title: '😴 Tempo de descanso',
-        description: 'Relaxar na casa - cochilo opcional'
+        description: 'Relaxar na casa - cochilo opcional',
       },
       {
-        id: 'afternoon-electronics',
+        id: 'best-buy-orlando',
         time: '15:00',
-        title: '📱 Tarde - Eletrônicos & Games',
-        description: 'Compras de tecnologia na região Florida Mall/Millenia',
-        location: 'Região Florida Mall/Millenia',
+        title: '🖥️ Best Buy - South Orange Blossom Trail',
+        description: 'Eletrônicos e tecnologia',
+        location: '8350 S Orange Blossom Trl, Orlando, FL 32809',
+        wazeUrl:
+          'https://waze.com/ul?q=8350%20S%20Orange%20Blossom%20Trl%2C%20Orlando%2C%20FL%2032809',
         notes: [
-          '🖥️ Best Buy - 8350 S Orange Blossom Trl, Orlando',
-          '🍎 Apple Store - 8001 S Orange Blossom Trl, Orlando (Florida Mall)',
-          '🎮 GameStop - 4670 Millenia Plaza Way, Orlando',
-          'Região com várias opções de eletrônicos',
-          'Aproveitar para comparar preços'
+          'Eletrônicos, TVs, celulares, notebooks',
+          'Primeira parada da tarde',
         ],
-        isHighlight: true
+        isHighlight: true,
+      },
+      {
+        id: 'apple-store-florida-mall',
+        time: '15:45',
+        title: '🍎 Apple Store - Florida Mall',
+        description: 'Produtos Apple e acessórios',
+        location: '8001 S Orange Blossom Trl, Orlando, FL 32809',
+        wazeUrl:
+          'https://waze.com/ul?q=8001%20S%20Orange%20Blossom%20Trl%2C%20Orlando%2C%20FL%2032809',
+        notes: [
+          'Produtos Apple e acessórios',
+          'Florida Mall - 1º andar',
+          "Macy's Backstage também no shopping",
+        ],
+      },
+      {
+        id: 'gamestop-millenia',
+        time: '16:30',
+        title: '🎮 GameStop - Millenia Plaza',
+        description: 'Games, consoles e acessórios',
+        location: '4670 Millenia Plaza Way, Orlando, FL 32839',
+        wazeUrl:
+          'https://waze.com/ul?q=4670%20Millenia%20Plaza%20Way%2C%20Orlando%2C%20FL%2032839',
+        notes: [
+          'Games, consoles e acessórios',
+          'Região Millenia',
+          'Comparar preços com outras lojas',
+        ],
       },
       {
         id: 'snack-break',
         time: '17:00',
         title: '☕ Lanche da tarde',
-        description: 'Pausa para lanche nos shoppings'
+        description: 'Pausa para lanche nos shoppings',
       },
       {
-        id: 'optional-evening',
+        id: 'prime-deals-kissimmee',
         time: '18:30',
-        title: '🛒 Opcional - Compras Noturnas',
-        description: 'Se sobrar tempo - lojas rápidas em Kissimmee',
+        title: '💰 Prime Deals Kissimmee',
+        description: 'Lojas rápidas e baratas para lembrancinhas',
+        location: '1702 N Main St, Kissimmee, FL 34744',
+        wazeUrl:
+          'https://waze.com/ul?q=1702%20N%20Main%20St%2C%20Kissimmee%2C%20FL%2034744',
         notes: [
-          '💰 Prime Deals Kissimmee - 1702 N Main St',
-          '🌳 Dollar Tree - 2316 W Vine St', 
-          '🎯 Five Below - 3211 Vineland Rd',
-          'Lojas rápidas, baratas e boas para lembrancinhas',
-          'Opcional conforme energia do grupo'
-        ]
+          'Lojas rápidas e baratas',
+          'Ótimo para lembrancinhas',
+          'Opcional conforme energia do grupo',
+        ],
+      },
+      {
+        id: 'dollar-tree-kissimmee-evening',
+        time: '19:00',
+        title: '🌳 Dollar Tree - Kissimmee',
+        description: 'Itens básicos e souvenirs baratos',
+        location: '2316 W Vine St, Kissimmee, FL 34741',
+        wazeUrl:
+          'https://waze.com/ul?q=2316%20W%20Vine%20St%2C%20Kissimmee%2C%20FL%2034741',
+        notes: [
+          'Itens básicos e souvenirs',
+          'Preços em dólar',
+          'Segunda parada opcional',
+        ],
+      },
+      {
+        id: 'five-below-kissimmee',
+        time: '19:15',
+        title: '🎯 Five Below - Kissimmee',
+        description: 'Produtos diversos até $5',
+        location: '3211 Vineland Rd, Kissimmee, FL 34746',
+        wazeUrl:
+          'https://waze.com/ul?q=3211%20Vineland%20Rd%2C%20Kissimmee%2C%20FL%2034746',
+        notes: [
+          'Produtos diversos até $5',
+          'Lojas rápidas e baratas',
+          'Última parada opcional',
+        ],
       },
       {
         id: 'dinner',
@@ -540,13 +664,15 @@ export const itineraryData: DayItinerary[] = [
         title: '🍕 Jantar - Cicis Pizza',
         description: 'Pizza buffet em Kissimmee',
         location: '5035 W Irlo Bronson Memorial Hwy, Kissimmee, FL 34746',
+        wazeUrl:
+          'https://waze.com/ul?q=5035%20W%20Irlo%20Bronson%20Memorial%20Hwy%2C%20Kissimmee%2C%20FL%2034746',
         notes: [
           'Horário: Segunda a domingo 11h às 22h',
           'Distância: apenas 10 minutos do resort',
           'Buffet de pizza com várias opções',
-          'Ótima opção para grupo grande'
+          'Ótima opção para grupo grande',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'return-home',
@@ -555,29 +681,30 @@ export const itineraryData: DayItinerary[] = [
         description: 'Fim do dia de compras e descanso',
         notes: [
           'Organizar as compras do dia',
-          'Preparação para os próximos dias de parques'
-        ]
-      }
-    ]
+          'Preparação para os próximos dias de parques',
+        ],
+      },
+    ],
   },
   {
     id: 'day6',
     date: '2025-11-25',
     title: 'Epic Universe',
-    description: 'O mais novo parque da Universal Studios com mundos temáticos incríveis',
+    description:
+      'O mais novo parque da Universal Studios com mundos temáticos incríveis',
     tags: ['parque', 'universal', 'epic-universe'],
     activities: [
       {
         id: 'wake-up',
         time: '07:00',
         title: 'Acordar',
-        description: 'Preparação para o Epic Universe'
+        description: 'Preparação para o Epic Universe',
       },
       {
         id: 'departure',
         time: '08:30',
         title: 'Saída para o parque',
-        description: 'Deslocamento para o Epic Universe'
+        description: 'Deslocamento para o Epic Universe',
       },
       {
         id: 'park-arrival',
@@ -585,8 +712,10 @@ export const itineraryData: DayItinerary[] = [
         title: 'Chegada no Epic Universe',
         description: 'Chegada 30 minutos antes da abertura',
         location: 'Epic Universe',
+        wazeUrl:
+          'https://waze.com/ul?q=Universal%20Epic%20Universe%20Orlando%20FL',
         notes: ['📸 Checkpoint 1: Foto na entrada do Epic Universe (letreiro)'],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'super-nintendo-world',
@@ -594,21 +723,21 @@ export const itineraryData: DayItinerary[] = [
         title: '🌟 Super Nintendo World - Mundo Mario',
         description: 'Primeira área temática - mundo do Mario',
         notes: [
-          '🏎️ Mario Kart: Bowser\'s Challenge',
+          "🏎️ Mario Kart: Bowser's Challenge",
           '📸 Foto no castelo de Bowser',
-          '🦕 Yoshi\'s Adventure',
+          "🦕 Yoshi's Adventure",
           '📸 Foto no carrinho do Yoshi',
           '🐒 Donkey Kong Country – Mine Cart Madness',
-          '📸 Foto na entrada com a estátua do Donkey Kong'
+          '📸 Foto na entrada com a estátua do Donkey Kong',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'toadstool-cafe',
         time: '11:00',
         title: '☕ Café da manhã - Toadstool Café',
         description: 'Café temático do Super Nintendo World',
-        notes: ['📸 Foto temática com a decoração do restaurante']
+        notes: ['📸 Foto temática com a decoração do restaurante'],
       },
       {
         id: 'nintendo-characters',
@@ -617,8 +746,8 @@ export const itineraryData: DayItinerary[] = [
         description: 'Encontro com personagens do Mario',
         notes: [
           'Mario, Luigi, Peach, Yoshi',
-          '📸 Foto com cada personagem disponível'
-        ]
+          '📸 Foto com cada personagem disponível',
+        ],
       },
       {
         id: 'wizarding-world',
@@ -629,17 +758,17 @@ export const itineraryData: DayItinerary[] = [
           '🎪 Le Cirque Arcanus (cenário Animais Fantásticos)',
           '🏛️ Ministério da Magia',
           '⚡ Harry Potter and the Battle at the Ministry',
-          '🏍️ Hagrid\'s Magical Creatures Motorbike Adventure',
+          "🏍️ Hagrid's Magical Creatures Motorbike Adventure",
           '📸 Checkpoint 2: Foto na entrada do Ministério da Magia',
-          '📸 Checkpoint 3: Foto na moto do Hagrid'
+          '📸 Checkpoint 3: Foto na moto do Hagrid',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'lunch',
         time: '14:00',
         title: '🍽️ Almoço',
-        description: 'Almoço em um dos restaurantes temáticos'
+        description: 'Almoço em um dos restaurantes temáticos',
       },
       {
         id: 'how-to-train-dragon',
@@ -648,14 +777,14 @@ export const itineraryData: DayItinerary[] = [
         description: 'Área temática do filme Como Treinar o seu Dragão',
         notes: [
           '🎭 Show: The Untrainable Dragon',
-          '🪂 Hiccup\'s Wing Gliders',
+          "🪂 Hiccup's Wing Gliders",
           '🏁 Dragon Races Rally',
           '🔥 Fire Drill (para crianças)',
           '🎢 Dragon Flight Coaster (principal)',
           '📸 Checkpoint 4: Foto com a estátua do Banguela e Soluço',
-          '📸 Checkpoint 5: Foto nas asas da montanha-russa Wing Gliders'
+          '📸 Checkpoint 5: Foto nas asas da montanha-russa Wing Gliders',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'dark-universe',
@@ -667,8 +796,8 @@ export const itineraryData: DayItinerary[] = [
           '📸 Foto na frente do castelo gótico',
           '🐺 Curse of the Werewolf',
           '🌟 Stardust Racers',
-          '📸 Checkpoint 6: Foto com os monstros clássicos (Drácula, Lobisomem, Frankenstein)'
-        ]
+          '📸 Checkpoint 6: Foto com os monstros clássicos (Drácula, Lobisomem, Frankenstein)',
+        ],
       },
       {
         id: 'minions-land',
@@ -679,14 +808,14 @@ export const itineraryData: DayItinerary[] = [
           '😈 Despicable Me Minion Mayhem',
           '🔫 Villain-Con Minion Blast',
           '👶 KidZone e Family Rides',
-          '📸 Checkpoint 8: Foto no letreiro com os Minions'
-        ]
+          '📸 Checkpoint 8: Foto no letreiro com os Minions',
+        ],
       },
       {
         id: 'dinner',
         time: '19:00',
         title: '🍽️ Jantar',
-        description: 'Jantar no parque'
+        description: 'Jantar no parque',
       },
       {
         id: 'night-show',
@@ -695,38 +824,43 @@ export const itineraryData: DayItinerary[] = [
         description: 'Show de projeções no Dark Universe',
         notes: [
           '📸 Checkpoint 7: Foto final no show de luzes',
-          '📸 Checkpoint 9: Foto com os Minions iluminados à noite'
+          '📸 Checkpoint 9: Foto com os Minions iluminados à noite',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'park-exit',
         time: '21:30',
         title: 'Saída do parque',
-        description: 'Fim do dia no Epic Universe'
-      }
-    ]
+        description: 'Fim do dia no Epic Universe',
+      },
+    ],
   },
   {
     id: 'day7',
     date: '2025-11-26',
     title: 'Universal Studios',
-    description: 'Parque clássico da Universal com filmes e personagens icônicos',
+    description:
+      'Parque clássico da Universal com filmes e personagens icônicos',
     tags: ['parque', 'universal', 'filmes'],
     activities: [
       {
         id: 'departure',
         time: '07:00',
         title: 'Saída para o parque',
-        description: 'Deslocamento para Universal Studios'
+        description: 'Deslocamento para Universal Studios',
       },
       {
         id: 'citywalk-arrival',
         time: '07:30',
         title: 'Chegada no CityWalk',
         description: 'Entrada pela área do CityWalk',
-        notes: ['📸 Checkpoint 1: Foto no globo da Universal no CityWalk (clássico)'],
-        isHighlight: true
+        location: 'Universal CityWalk Orlando',
+        wazeUrl: 'https://waze.com/ul?q=Universal%20CityWalk%20Orlando%20FL',
+        notes: [
+          '📸 Checkpoint 1: Foto no globo da Universal no CityWalk (clássico)',
+        ],
+        isHighlight: true,
       },
       {
         id: 'harry-potter-diagon',
@@ -739,13 +873,13 @@ export const itineraryData: DayItinerary[] = [
           '🚌 Knight Bus (Nôitibus Andante)',
           '🏛️ Banco Gringotts',
           '🛍️ Lojas Weasley',
-          '🚂 Estação King\'s Cross',
+          "🚂 Estação King's Cross",
           '🐉 Dragão soltando fogo a cada 10 minutos',
           '🪄 Loja de varinhas Ollivanders',
           '🛤️ Travessa do Tranco',
-          '⚡ Harry Potter and the escape from Gringotts'
+          '⚡ Harry Potter and the escape from Gringotts',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'harry-potter-photos',
@@ -755,8 +889,8 @@ export const itineraryData: DayItinerary[] = [
         notes: [
           '📸 Checkpoint 2: Foto com o Nôitibus Andante e o cobrador',
           '📸 Checkpoint 3: Foto com o dragão cuspindo fogo em cima do Gringotts',
-          '📸 Checkpoint 4: Foto escolhendo varinha em Ollivanders'
-        ]
+          '📸 Checkpoint 4: Foto escolhendo varinha em Ollivanders',
+        ],
       },
       {
         id: 'mib-area',
@@ -765,8 +899,8 @@ export const itineraryData: DayItinerary[] = [
         description: 'Área dos Homens de Preto',
         notes: [
           '🛸 Men in Black: Alien Attack',
-          '📸 Checkpoint 5: Foto com os agentes e aliens na entrada'
-        ]
+          '📸 Checkpoint 5: Foto com os agentes e aliens na entrada',
+        ],
       },
       {
         id: 'simpsons-area',
@@ -775,18 +909,18 @@ export const itineraryData: DayItinerary[] = [
         description: 'Área temática dos Simpsons',
         notes: [
           '🎢 The Simpsons Ride',
-          '🌪️ Twirl \'n\' Hurl',
+          "🌪️ Twirl 'n' Hurl",
           '🍺 Duff Brewery',
           '🍻 Bar do Moe',
           '📸 Checkpoint 6: Foto com o Homer na frente da montanha-russa',
-          '📸 Checkpoint 7: Foto tomando cerveja na Duff Brewery'
-        ]
+          '📸 Checkpoint 7: Foto tomando cerveja na Duff Brewery',
+        ],
       },
       {
         id: 'lunch',
         time: '13:00',
         title: '🍽️ Almoço',
-        description: 'Almoço no parque'
+        description: 'Almoço no parque',
       },
       {
         id: 'other-attractions',
@@ -798,8 +932,8 @@ export const itineraryData: DayItinerary[] = [
           '🎭 The Bourne Stuntacular → 📸 Foto na entrada do show',
           '🏎️ Velozes e Furiosos → 📸 Foto com os carros de Toretto',
           '🏺 The Mummy → 📸 Foto na fachada da atração',
-          '🤖 Transformers – 3D → 📸 Foto com Optimus Prime ou Bumblebee'
-        ]
+          '🤖 Transformers – 3D → 📸 Foto com Optimus Prime ou Bumblebee',
+        ],
       },
       {
         id: 'minions-area-universal',
@@ -810,14 +944,14 @@ export const itineraryData: DayItinerary[] = [
           '🎢 Hollywood Rip Ride Rockit',
           '😈 Despicable Me: Minion Mayhem',
           '🔫 Villain-Con Minion Blast',
-          '📸 Checkpoint 8: Foto com os Minions gigantes na fachada'
-        ]
+          '📸 Checkpoint 8: Foto com os Minions gigantes na fachada',
+        ],
       },
       {
         id: 'dinner',
         time: '18:00',
         title: '🍽️ Jantar',
-        description: 'Jantar no parque'
+        description: 'Jantar no parque',
       },
       {
         id: 'hogwarts-express',
@@ -826,31 +960,32 @@ export const itineraryData: DayItinerary[] = [
         description: 'Experiência final no trem do Harry Potter',
         notes: [
           '🚂 Hogwarts Express (ida e volta)',
-          '📸 Checkpoint 9: Foto na Plataforma 9¾ com o carrinho atravessando a parede'
+          '📸 Checkpoint 9: Foto na Plataforma 9¾ com o carrinho atravessando a parede',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'park-exit',
         time: '21:00',
         title: 'Saída do parque',
-        description: 'Fim do dia no Universal Studios'
-      }
-    ]
+        description: 'Fim do dia no Universal Studios',
+      },
+    ],
   },
   {
     id: 'day8',
     date: '2025-11-27',
-    title: 'Thanksgiving Day - Dia Livre e Início Black Friday',
-    description: 'Dia de ação de graças com descanso, jantar no T-Rex e início das promoções Black Friday',
-    tags: ['thanksgiving', 'descanso', 'black-friday', 't-rex'],
+    title: 'Thanksgiving Day - Disney Resort Hopping & T-Rex',
+    description:
+      'Dia de ação de graças com Disney Resort Hopping, Skyliner Experience e jantar no T-Rex',
+    tags: ['thanksgiving', 'disney', 'resort-hopping', 'skyliner', 't-rex'],
     activities: [
       {
         id: 'morning-prayer',
         time: '08:00',
         title: '🙏 Oração matinal',
         description: 'Rezar um terço',
-        notes: ['Momento de gratidão no Thanksgiving Day']
+        notes: ['Momento de gratidão no Thanksgiving Day'],
       },
       {
         id: 'morning-rest',
@@ -860,8 +995,8 @@ export const itineraryData: DayItinerary[] = [
         notes: [
           'Aproveitar as facilidades do Storey Lake',
           'Piscina, área de lazer',
-          'Manhã livre para recuperar energias'
-        ]
+          'Manhã livre para recuperar energias',
+        ],
       },
       {
         id: 'birthday-cake',
@@ -869,86 +1004,186 @@ export const itineraryData: DayItinerary[] = [
         title: '🎂 Comprar bolo para aniversário do Teo',
         description: 'Compra do bolo de aniversário',
         location: 'Publix ou Walmart próximo',
+        wazeUrl: 'https://waze.com/ul?q=Publix%20Kissimmee%20FL',
         notes: [
           'Publix - 3221 Vineland Rd, Kissimmee, FL 34746',
           'Walmart Supercenter - 3250 Vineland Rd, Kissimmee, FL 34746',
-          'Verificar opções de decoração personalizada'
-        ]
+          'Verificar opções de decoração personalizada',
+        ],
       },
       {
-        id: 'lunch-home',
-        time: '13:00',
-        title: '🏠 Almoço em casa',
-        description: 'Almoço tranquilo na acomodação'
-      },
-      {
-        id: 'rest-afternoon',
+        id: 'departure-disney',
         time: '14:00',
-        title: '💤 Descanso da tarde',
-        description: 'Preparação para o jantar e compras noturnas'
+        title: '🚗 Saída para Disney Springs',
+        description: 'Início do Resort Hopping Disney',
+        location: 'Disney Springs - Orange Garage',
+        wazeUrl:
+          'https://waze.com/ul?q=Disney%20Springs%20Orange%20Garage%20Orlando%20FL',
+        notes: [
+          'Endereço: 1486 Buena Vista Dr, Orlando, FL 32830',
+          'Estacionamento gratuito no Orange Garage',
+          'Deixar o carro aqui - transporte Disney gratuito',
+        ],
+        isHighlight: true,
+      },
+      {
+        id: 'art-of-animation',
+        time: '15:15',
+        title: "🎨 Disney's Art of Animation Resort",
+        description: 'Explorar os mundos temáticos do resort',
+        notes: [
+          '🚌 Ônibus do Disney Springs até o resort (~15 min)',
+          '📸 Mundos: Nemo, Rei Leão, Carros e Pequena Sereia',
+          '🍦 Sorvete no Landscape of Flavors',
+          '⏰ Duração: 1h',
+        ],
+        isHighlight: true,
+      },
+      {
+        id: 'pop-century-walk',
+        time: '16:15',
+        title: '🚶 Caminhada até Pop Century Resort',
+        description: 'Passeio pela ponte do lago Hourglass',
+        notes: [
+          '🕐 10 minutos pela ponte do lago Hourglass',
+          '📸 Ótimas fotos com o Skyliner refletindo na água',
+        ],
+      },
+      {
+        id: 'skyliner-experience',
+        time: '16:30',
+        title: '🚠 Disney Skyliner Experience',
+        description: 'Voo panorâmico sobre bastidores da Disney',
+        location: 'Estação Pop Century / Art of Animation',
+        notes: [
+          '🛫 Rota: Pop Century → Caribbean Beach → Riviera → Epcot/BoardWalk',
+          '💡 Sente do lado esquerdo para ver o pôr do sol 🌇',
+          'Voo panorâmico sobre bastidores da Disney',
+        ],
+        isHighlight: true,
+      },
+      {
+        id: 'riviera-resort',
+        time: '17:00',
+        title: "🇫🇷 Disney's Riviera Resort",
+        description: 'Parada para café e sobremesa',
+        notes: [
+          '☕ Café e sobremesa no Le Petit Café ou Primo Piatto',
+          '📸 Murais de mosaico da Rapunzel e Peter Pan (Instagram spot ⭐)',
+          '⏰ 30–40 min',
+        ],
+      },
+      {
+        id: 'boardwalk-arrival',
+        time: '17:45',
+        title: "🎡 Chegada ao Disney's BoardWalk",
+        description: 'Caminhada desde a estação Epcot Gateway',
+        location: "Disney's BoardWalk",
+        notes: [
+          '🚶 Caminhada leve desde a estação Epcot Gateway',
+          '✨ Passeio e jantar no BoardWalk',
+          '🎭 Artistas de rua, lojas e vista para o lago Crescent',
+        ],
+      },
+      {
+        id: 'boardwalk-dinner',
+        time: '18:30',
+        title: '🍽️ Jantar no BoardWalk',
+        description: 'Opções de jantar no BoardWalk',
+        notes: [
+          '🍝 Trattoria al Forno – massas italianas',
+          '🍔 Big River Grille – hambúrguer artesanal',
+          'BoardWalk Deli – opção rápida e econômica',
+        ],
       },
       {
         id: 'trex-dinner',
-        time: '17:00',
+        time: '19:30',
         title: '🦕 Jantar no T-Rex Restaurant',
         description: 'Experiência gastronômica temática com dinossauros',
         location: 'T-Rex Restaurant - Disney Springs',
+        wazeUrl:
+          'https://waze.com/ul?q=T-Rex%20Restaurant%20Disney%20Springs%20Orlando%20FL',
         notes: [
           'Endereço: 1676 E Buena Vista Dr, Lake Buena Vista, FL 32830',
           'Restaurante temático com dinossauros animatrônicos',
           'Ambiente familiar e divertido',
-          'Reserva recomendada',
-          '📸 Foto com os dinossauros do restaurante'
+          'Reserva: 355298326381 / 355298331112',
+          '📸 Foto com os dinossauros do restaurante',
         ],
-        isHighlight: true
+        isHighlight: true,
+      },
+      {
+        id: 'chip-dale-show',
+        time: '20:00',
+        title: '🔥 Show do Tico e Teco',
+        description: "Chip 'n Dale's Campfire Sing-Along",
+        location: "Disney's Fort Wilderness Resort & Campground",
+        wazeUrl:
+          'https://waze.com/ul?q=Disney%20Fort%20Wilderness%20Resort%20Orlando%20FL',
+        notes: [
+          "📍 Disney's Fort Wilderness Resort & Campground",
+          '15–20 min do BoardWalk (de carro ou transporte Disney)',
+          'Entrada gratuita (não precisa ingresso de parque)',
+          '🔥 Apresentação ao ar livre com fogueira e músicas Disney 🎶',
+          'Tico e Teco aparecem para fotos e brincadeiras',
+          "Pode levar ou comprar kits de marshmallow para assar (S'mores)",
+          '⏰ Horário: geralmente começa por volta de 20h00–20h30',
+          '💡 Dica: leve repelente e chegue 10–15 min antes',
+        ],
+        isHighlight: true,
       },
       {
         id: 'black-friday-prep',
-        time: '19:30',
+        time: '21:30',
         title: '🛍️ Preparação Black Friday',
         description: 'Início das promoções de Thanksgiving Night',
         notes: [
           'Algumas lojas abrem às 17h-18h de quinta-feira',
           'Estratégia: chegar cedo para pegar lugar na fila',
-          'Verificar horários específicos de cada loja'
-        ]
+          'Verificar horários específicos de cada loja',
+        ],
       },
       {
         id: 'thursday-night-shopping',
-        time: '20:00',
+        time: '22:00',
         title: '🌙 Thursday Night Sales',
         description: 'Primeira rodada de compras Black Friday',
         location: 'Outlets e grandes lojas',
         notes: [
           '🏪 Orlando Vineland Premium Outlets',
           '🏬 The Mall at Millenia',
-          '🏬 Florida Mall', 
+          '🏬 Florida Mall',
           '🖥️ Best Buy - eletrônicos',
           '🎯 Target - diversos produtos',
           '🛒 Walmart - geral',
           '👕 Ross, Marshalls - roupas',
-          'Dica: chegar às 16h-17h para pegar fila das lojas populares'
+          'Dica: chegar às 16h-17h para pegar fila das lojas populares',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'return-home',
         time: '23:00',
         title: '🏠 Retorno para casa',
-        description: 'Fim do primeiro dia de Black Friday',
+        description: 'Fim do Thanksgiving Day',
         notes: [
+          '🚠 Retorno pelo transporte interno Disney (ônibus até Disney Springs)',
+          'Chegada ao carro: 21h45–22h00',
+          'Fim do dia com sensação de magia completa ✨',
           'Organizar as compras do dia',
           'Preparar estratégia para sexta-feira',
-          'Descansar para o dia intenso de amanhã'
-        ]
-      }
-    ]
+          'Descansar para o dia intenso de amanhã',
+        ],
+      },
+    ],
   },
   {
     id: 'day9',
     date: '2025-11-28',
     title: 'Black Friday - Maratona de Compras',
-    description: 'Dia completo de Black Friday com roteiro estratégico pelas melhores lojas',
+    description:
+      'Dia completo de Black Friday com roteiro estratégico pelas melhores lojas',
     tags: ['black-friday', 'compras', 'eletrônicos', 'outlets'],
     activities: [
       {
@@ -959,8 +1194,8 @@ export const itineraryData: DayItinerary[] = [
         notes: [
           'Café rápido em casa',
           'Verificar lista de compras',
-          'Conferir horários das lojas'
-        ]
+          'Conferir horários das lojas',
+        ],
       },
       {
         id: 'best-buy-millenia',
@@ -968,14 +1203,16 @@ export const itineraryData: DayItinerary[] = [
         title: '🖥️ Best Buy Millenia (Prioridade #1)',
         description: 'Loja de eletrônicos mais disputada',
         location: '4155 Millenia Blvd, Orlando, FL 32839',
+        wazeUrl:
+          'https://waze.com/ul?q=4155%20Millenia%20Blvd%2C%20Orlando%2C%20FL%2032839',
         notes: [
-          'Abertura: 5h00',
+          'Abertura: 3h00',
           'Chegar 4h45-5h00 para fila curta',
           'Foco: TVs, celulares, notebooks, games',
           'Promoções mais fortes do ano',
-          '📸 Foto na fila ou com as promoções'
+          '📸 Foto na fila ou com as promoções',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'lake-buena-vista-outlets',
@@ -983,52 +1220,78 @@ export const itineraryData: DayItinerary[] = [
         title: '🏪 Lake Buena Vista Factory Stores',
         description: 'Outlet alternativo, menos movimentado',
         location: '15657 S Apopka Vineland Rd, Orlando, FL 32821',
+        wazeUrl:
+          'https://waze.com/ul?q=15657%20S%20Apopka%20Vineland%20Rd%2C%20Orlando%2C%20FL%2032821',
         notes: [
           'Abertura: 6h00',
-          'Nike Clearance, Levi\'s, Reebok, Crocs',
+          "Nike Clearance, Levi's, Reebok, Crocs",
           'Menos cheio que outros outlets',
-          'Boas oportunidades em roupas esportivas'
-        ]
+          'Boas oportunidades em roupas esportivas',
+          'Ótimo início de manhã',
+        ],
+      },
+      {
+        id: 'kipling-outlets',
+        time: '09:15',
+        title: '👜 Kipling - Orlando Vineland Premium Outlets',
+        description: 'Loja oficial Kipling com descontos expressivos',
+        location: '8200 Vineland Ave, Suite 1553, Orlando, FL 32821',
+        wazeUrl:
+          'https://waze.com/ul?q=8200%20Vineland%20Ave%20Suite%201553%2C%20Orlando%2C%20FL%2032821',
+        notes: [
+          'Loja oficial Kipling, ampla e bem organizada',
+          'Bolsas, mochilas e acessórios com descontos expressivos',
+          'Fica a apenas 10 minutos do Lake Buena Vista Factory Stores',
+          'Descontos especiais na Black Friday',
+        ],
       },
       {
         id: 'ross-marshalls',
-        time: '09:30',
+        time: '10:30',
         title: '👕 Ross & Marshalls - International Drive',
         description: 'Caça de roupas, tênis, bolsas e perfumes',
         location: 'International Drive (lado a lado)',
+        wazeUrl:
+          'https://waze.com/ul?q=5295%20International%20Dr%2C%20Orlando%2C%20FL%2032819',
         notes: [
           'Ross: 5295 International Dr, Orlando, FL 32819',
           'Marshalls: 5295 International Dr, Orlando, FL 32819',
           'Abertura: 6h00-7h00',
           'Grandes descontos em marcas famosas',
-          'Foco: roupas, calçados, bolsas, perfumes'
-        ]
+          'Foco: roupas, calçados, bolsas, perfumes',
+          'Perfeitas para garimpar achadinhos de grife',
+        ],
       },
       {
         id: 'quick-lunch',
-        time: '12:00',
-        title: '🍽️ Almoço rápido',
+        time: '12:15',
+        title: '🍽️ Almoço Rápido',
         description: 'Refeição rápida para continuar as compras',
         location: 'International Drive',
+        wazeUrl:
+          'https://waze.com/ul?q=Pollo%20Tropical%20International%20Drive%20Orlando%20FL',
         notes: [
           '🐔 Pollo Tropical - 5415 International Dr, Orlando, FL 32819',
           '🥡 Panda Express - 5250 International Dr, Orlando, FL 32819',
-          'Opções rápidas e próximas às lojas'
-        ]
+          'Almoço leve e rápido antes da segunda rodada',
+          'Opções próximas às lojas',
+        ],
       },
       {
         id: 'tj-maxx',
-        time: '13:15',
+        time: '13:30',
         title: '🛍️ TJ Maxx',
         description: 'Moda, cosméticos, bolsas de grife e utensílios',
         location: 'Escolher unidade mais conveniente',
+        wazeUrl: 'https://waze.com/ul?q=TJ%20Maxx%20Orlando%20FL',
         notes: [
           'Opção 1: 397 N Alafaya Trail, Orlando, FL 32828',
           'Opção 2: 3232 E Colonial Dr, Orlando, FL 32803',
           'Abertura: 7h00-8h00',
           'Marcas de grife com desconto',
-          'Cosméticos e produtos para casa'
-        ]
+          'Cosméticos e produtos para casa',
+          'Ótimo para encontrar produtos premium com desconto',
+        ],
       },
       {
         id: 'best-buy-florida-mall',
@@ -1036,26 +1299,31 @@ export const itineraryData: DayItinerary[] = [
         title: '🖥️ Best Buy Florida Mall (2ª rodada)',
         description: 'Segunda chance para eletrônicos',
         location: '8350 S Orange Blossom Trail, Orlando, FL 32809',
+        wazeUrl:
+          'https://waze.com/ul?q=8350%20S%20Orange%20Blossom%20Trail%2C%20Orlando%2C%20FL%2032809',
         notes: [
-          'Caso não tenha ido de manhã ou queira revisar',
+          'Caso queira revisar ofertas eletrônicas ou itens esgotados cedo',
           'Verificar se ainda há promoções disponíveis',
-          'Comparar preços com a unidade Millenia'
-        ]
+          'Comparar preços com a unidade Millenia',
+          'Segunda rodada opcional',
+        ],
       },
       {
-        id: 'mall-final',
+        id: 'florida-mall',
         time: '17:00',
-        title: '🏬 Mall at Millenia ou Florida Mall',
-        description: 'Final de tarde para compras variadas',
-        location: 'Escolher entre os dois shoppings',
+        title: '🏬 Florida Mall',
+        description: 'Shopping completo para o fim de tarde',
+        location: '8001 S Orange Blossom Trail, Orlando, FL 32809',
+        wazeUrl:
+          'https://waze.com/ul?q=8001%20S%20Orange%20Blossom%20Trail%2C%20Orlando%2C%20FL%2032809',
         notes: [
-          'Mall at Millenia: 4200 Conroy Rd, Orlando, FL 32839',
-          'Florida Mall: 8001 S Orange Blossom Trail, Orlando, FL 32809',
           'Abertura: 6h00-7h00',
+          'Shopping completo para o fim de tarde',
+          "Kipling (loja 216), Apple Store, Zara, Sephora e Macy's",
+          'Ambientes climatizados e várias opções gastronômicas',
           'Compras finais: roupas, cosméticos, eletrônicos extras',
-          'Aproveitar últimas promoções do dia'
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'dinner-break',
@@ -1065,8 +1333,8 @@ export const itineraryData: DayItinerary[] = [
         notes: [
           'Opções no shopping ou próximo',
           'Momento para revisar compras do dia',
-          'Descansar antes do retorno'
-        ]
+          'Descansar antes do retorno',
+        ],
       },
       {
         id: 'return-organize',
@@ -1077,44 +1345,49 @@ export const itineraryData: DayItinerary[] = [
           'Organizar todas as compras do dia',
           'Verificar se conseguiu tudo da lista',
           'Celebrar o sucesso do Black Friday',
-          'Preparar para os próximos dias da viagem'
-        ]
-      }
+          'Preparar para os próximos dias da viagem',
+        ],
+      },
     ],
     notes: [
       '📋 Resumo Estratégico Black Friday:',
       '05h00-07h00 → Best Buy Millenia (prioridade #1)',
-      '07h30-09h00 → Lake Buena Vista Outlets',
-      '09h30-11h30 → Ross & Marshalls (International Dr)',
-      '12h00-13h00 → Almoço rápido',
-      '13h15-14h30 → TJ Maxx',
+      '07h30-09h00 → Lake Buena Vista Factory Stores',
+      '09h15-10h00 → Kipling Orlando Vineland Premium Outlets',
+      '10h30-12h00 → Ross & Marshalls (International Dr)',
+      '12h15-13h15 → Almoço rápido',
+      '13h30-14h30 → TJ Maxx',
       '15h00-16h30 → Best Buy Florida Mall (2ª chance)',
-      '17h00-19h00 → Florida Mall ou Mall at Millenia'
-    ]
+      '17h00-19h00 → Florida Mall',
+    ],
   },
   {
     id: 'day10',
     date: '2025-11-29',
     title: 'Islands of Adventure',
-    description: 'Parque temático com as melhores montanhas-russas e mundos fantásticos',
+    description:
+      'Parque temático com as melhores montanhas-russas e mundos fantásticos',
     tags: ['parque', 'universal', 'islands-of-adventure', 'harry-potter'],
     activities: [
       {
         id: 'departure',
         time: '07:00',
         title: 'Saída para o parque',
-        description: 'Deslocamento para Islands of Adventure'
+        description: 'Deslocamento para Islands of Adventure',
       },
       {
         id: 'park-arrival',
         time: '09:00',
         title: 'Chegada e abertura oficial',
         description: 'Entrada no Islands of Adventure',
+        location: 'Islands of Adventure Orlando',
+        wazeUrl:
+          'https://waze.com/ul?q=Universal%20Islands%20of%20Adventure%20Orlando%20FL',
         notes: [
           '📸 Checkpoint 1: Foto na entrada do Islands of Adventure com o farol (letreiro clássico)',
-          '📸 Checkpoint 2: Foto no CityWalk antes da entrada'
+          '📸 Checkpoint 2: Foto no CityWalk antes da entrada',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'seuss-landing',
@@ -1125,8 +1398,8 @@ export const itineraryData: DayItinerary[] = [
           'The Cat in the Hat',
           'One Fish, Two Fish, Red Fish, Blue Fish',
           'The High in the Sky Seuss Trolley Train Ride',
-          '📸 Checkpoint 3: Foto com o The Cat in the Hat e nos cenários coloridos'
-        ]
+          '📸 Checkpoint 3: Foto com o The Cat in the Hat e nos cenários coloridos',
+        ],
       },
       {
         id: 'jurassic-park',
@@ -1140,9 +1413,9 @@ export const itineraryData: DayItinerary[] = [
           '📸 Checkpoint 5: Foto no portão gigante do Jurassic Park',
           '🦅 Pteranodon Flyers (infantil)',
           '🏕️ Camp Jurassic (playground temático)',
-          '📸 Checkpoint 6: Foto no cenário com dinossauros e ossadas'
+          '📸 Checkpoint 6: Foto no cenário com dinossauros e ossadas',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'hogsmeade',
@@ -1151,23 +1424,23 @@ export const itineraryData: DayItinerary[] = [
         description: 'Vila mágica do mundo de Harry Potter',
         notes: [
           '🍺 Butterbeer (Frozen) - imperdível!',
-          '🏍️ Hagrid\'s Magical Creatures Motorbike Adventure',
+          "🏍️ Hagrid's Magical Creatures Motorbike Adventure",
           '📸 Checkpoint 7: Foto na moto do Hagrid',
           '🏰 Castelo de Hogwarts',
           '📸 Checkpoint 8: Foto em frente ao Castelo iluminado',
           '🎢 Harry Potter and the Forbidden Journey',
           '🦅 Flight of the Hippogriff',
           '🎭 Shows: Frog Choir, Triwizard Spirit Rally',
-          '📸 Checkpoint 9: Foto com personagens do show'
+          '📸 Checkpoint 9: Foto com personagens do show',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'lunch-three-broomsticks',
         time: '13:30',
         title: '🍽️ Almoço - Três Vassouras',
         description: 'Restaurante temático do Harry Potter',
-        location: 'Three Broomsticks - Hogsmeade'
+        location: 'Three Broomsticks - Hogsmeade',
       },
       {
         id: 'skull-island',
@@ -1176,8 +1449,8 @@ export const itineraryData: DayItinerary[] = [
         description: 'Ilha do King Kong',
         notes: [
           '🦍 Skull Island – Reign of Kong',
-          '📸 Checkpoint 10: Foto na entrada com a cabeça gigante do King Kong'
-        ]
+          '📸 Checkpoint 10: Foto na entrada com a cabeça gigante do King Kong',
+        ],
       },
       {
         id: 'toon-lagoon',
@@ -1185,11 +1458,11 @@ export const itineraryData: DayItinerary[] = [
         title: '💦 Toon Lagoon',
         description: 'Área dos desenhos animados com atrações aquáticas',
         notes: [
-          '🌊 Dudley Do-Right\'s Ripsaw Falls',
-          '⛵ Popeye & Bluto\'s Bilge-Rat Barges',
+          "🌊 Dudley Do-Right's Ripsaw Falls",
+          "⛵ Popeye & Bluto's Bilge-Rat Barges",
           '📸 Checkpoint 11: Foto no cenário de quadrinhos (balões de "POW!", "SPLASH!")',
-          '📸 Checkpoint 12: Foto com o Popeye gigante'
-        ]
+          '📸 Checkpoint 12: Foto com o Popeye gigante',
+        ],
       },
       {
         id: 'marvel-superhero-island',
@@ -1202,15 +1475,15 @@ export const itineraryData: DayItinerary[] = [
           '💚 Montanha-russa Hulk',
           '📸 Checkpoint 14: Foto no letreiro da Hulk Coaster com os trilhos verdes',
           '🛡️ Encontro com personagens: Capitão América, Wolverine, etc.',
-          '📸 Checkpoint 15: Fotos com os heróis da Marvel na rua'
+          '📸 Checkpoint 15: Fotos com os heróis da Marvel na rua',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'dinner',
         time: '18:30',
         title: '🍽️ Jantar',
-        description: 'Jantar no parque'
+        description: 'Jantar no parque',
       },
       {
         id: 'night-extras',
@@ -1220,112 +1493,145 @@ export const itineraryData: DayItinerary[] = [
         notes: [
           '🌙 Nighttime Lights at Hogwarts Castle (se houver)',
           '📸 Checkpoint 16: Foto no castelo com projeções noturnas',
-          '🌊 Poseidon\'s Fury (se reaberto)',
-          '💡 Dicas: Child Swap / Single Rider para otimizar tempo'
+          "🌊 Poseidon's Fury (se reaberto)",
+          '💡 Dicas: Child Swap / Single Rider para otimizar tempo',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'park-exit',
         time: '21:30',
         title: 'Saída do parque',
-        description: 'Fim do dia no Islands of Adventure'
-      }
+        description: 'Fim do dia no Islands of Adventure',
+      },
     ],
     notes: [
-      '🎢 Principais atrações: VelociCoaster, Hagrid\'s Motorbike, Hulk Coaster',
+      "🎢 Principais atrações: VelociCoaster, Hagrid's Motorbike, Hulk Coaster",
       '⚡ Mundo do Harry Potter: Hogsmeade é imperdível',
       '🦸 Marvel Super Hero Island: encontros com heróis',
       '💡 Use Child Swap e Single Rider para otimizar tempo',
-      '📸 16 checkpoints de fotos estratégicos'
-    ]
+      '📸 16 checkpoints de fotos estratégicos',
+    ],
   },
   {
     id: 'day11',
     date: '2025-11-30',
-    title: 'Domingo - Missa e Volcano Bay',
-    description: 'Domingo de missa e diversão no parque aquático da Universal',
-    tags: ['missa', 'volcano-bay', 'parque-aquatico', 'domingo'],
+    title: 'Domingo - Missa e Universal',
+    description: 'Domingo de missa e diversão nos parques da Universal',
+    tags: ['missa', 'universal', 'parques', 'domingo'],
     activities: [
       {
         id: 'wake-up',
         time: '07:00',
         title: 'Acordar',
-        description: 'Preparação para o domingo'
+        description: 'Preparação para o domingo',
       },
       {
         id: 'departure-mass',
-        time: '08:00',
+        time: '07:10',
         title: 'Saída para Missa',
-        description: 'Deslocamento para a Basílica'
+        description: 'Deslocamento para a Basílica',
       },
       {
         id: 'mass',
-        time: '09:00',
+        time: '08:00',
         title: '⛪ Missa',
         description: 'Missa dominical',
-        location: 'Basilica of the National Shrine of Mary, Queen of the Universe',
+        location:
+          'Basilica of the National Shrine of Mary, Queen of the Universe',
+        wazeUrl:
+          'https://waze.com/ul?q=8300%20Vineland%20Ave%2C%20Orlando%2C%20FL%2032821',
         notes: [
           'Endereço: 8300 Vineland Ave, Orlando, FL 32821',
           'Segunda vez na mesma basílica',
-          'Momento de gratidão pela viagem'
+          'Momento de gratidão pela viagem',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
-        id: 'volcano-bay',
-        time: '11:00',
-        title: '🌋 Volcano Bay',
-        description: 'Parque aquático temático da Universal',
-        location: 'Universal\'s Volcano Bay',
+        id: 'lunch-home',
+        time: '10:00',
+        title: '🍽️ Almoço em casa',
+        description: 'Retorno para casa após a missa',
         notes: [
-          'Parque aquático com tema tropical',
-          'Krakatau Aqua Coaster - principal atração',
-          'Wave Village - piscina de ondas',
-          'Rainforest Village - toboáguas',
-          'River Village - rio lento',
-          'TapuTapu - pulseira virtual para filas',
-          '📸 Foto no vulcão Krakatau (ícone do parque)',
-          '📸 Foto nas piscinas com vista do vulcão'
+          'Tempo para relaxar após a missa',
+          'Preparação para a tarde nos parques',
         ],
-        isHighlight: true
-      },
-      {
-        id: 'lunch-volcano',
-        time: '13:00',
-        title: '🍽️ Almoço no Volcano Bay',
-        description: 'Refeição no parque aquático'
       },
       {
         id: 'afternoon-decision',
-        time: '16:00',
+        time: '12:00',
         title: '🤔 Decisão da tarde',
-        description: 'Avaliar se voltaremos a algum parque',
+        description: 'Escolher qual parque da Universal visitar',
         notes: [
-          'Opção 1: Continuar no Volcano Bay',
-          'Opção 2: Revisitar Magic Kingdom',
-          'Opção 3: Revisitar Universal Studios',
-          'Opção 4: Descansar na acomodação',
-          'Decisão baseada no cansaço do grupo'
-        ]
+          'Opção 1: Universal Studios',
+          'Opção 2: Islands of Adventure',
+          'Opção 3: Descansar na acomodação',
+          'Decisão baseada no cansaço do grupo',
+        ],
+      },
+      {
+        id: 'universal-studios-option',
+        time: '13:00',
+        title: '🎬 Universal Studios',
+        description:
+          'Parque clássico da Universal com filmes e personagens icônicos',
+        location: 'Universal Studios Florida',
+        wazeUrl:
+          'https://waze.com/ul?q=Universal%20Studios%20Florida%20Orlando%20FL',
+        notes: [
+          'Parque clássico da Universal',
+          'Filmes e personagens icônicos',
+          'Harry Potter - Beco Diagonal',
+          'Simpsons, Minions, Transformers',
+          'Opção caso escolham este parque',
+        ],
+        isHighlight: true,
+      },
+      {
+        id: 'islands-of-adventure-option',
+        time: '13:00',
+        title: '🎢 Islands of Adventure',
+        description: 'Parque temático com as melhores montanhas-russas',
+        location: 'Universal Islands of Adventure',
+        wazeUrl:
+          'https://waze.com/ul?q=Universal%20Islands%20of%20Adventure%20Orlando%20FL',
+        notes: [
+          'Parque temático com montanhas-russas',
+          'Harry Potter - Hogsmeade',
+          'VelociCoaster, Hulk Coaster',
+          'Marvel Super Hero Island',
+          'Opção caso escolham este parque',
+        ],
+        isHighlight: true,
+      },
+      {
+        id: 'dinner-park',
+        time: '18:00',
+        title: '🍽️ Jantar no parque',
+        description: 'Refeição no parque escolhido',
+        notes: [
+          'Opções de restaurantes no parque',
+          'Aproveitar o ambiente temático',
+        ],
       },
       {
         id: 'evening-activity',
-        time: '18:00',
+        time: '19:00',
         title: '🌅 Atividade da noite',
-        description: 'Conforme decisão da tarde',
+        description: 'Aproveitar o parque até o fechamento',
         notes: [
-          'Se escolher parque: aproveitar até o fechamento',
-          'Se escolher descanso: jantar tranquilo e organização'
-        ]
+          'Aproveitar até o fechamento do parque',
+          'Últimas atrações e shows',
+        ],
       },
       {
         id: 'return-home',
         time: '21:00',
         title: '🏠 Retorno para casa',
-        description: 'Fim do domingo de lazer'
-      }
-    ]
+        description: 'Fim do domingo de lazer',
+      },
+    ],
   },
   {
     id: 'day12',
@@ -1342,8 +1648,8 @@ export const itineraryData: DayItinerary[] = [
         notes: [
           'Saída cedo para ter tempo tranquilo',
           'Pit stop opcional para café na estrada (Turnpike ou I-95)',
-          'Tempo estimado de viagem: ~4h com paradas'
-        ]
+          'Tempo estimado de viagem: ~4h com paradas',
+        ],
       },
       {
         id: 'boca-raton',
@@ -1355,8 +1661,8 @@ export const itineraryData: DayItinerary[] = [
           'Tempo de viagem Orlando → Boca Raton: ~2h45',
           'Atividade: fotos e caminhada rápida na praia',
           'Tempo no local: 30 min máximo',
-          '📸 Fotos na praia de Boca Raton'
-        ]
+          '📸 Fotos na praia de Boca Raton',
+        ],
       },
       {
         id: 'fort-lauderdale',
@@ -1364,36 +1670,41 @@ export const itineraryData: DayItinerary[] = [
         title: '🌊 Fort Lauderdale',
         description: 'Almoço e volta pela praia',
         location: 'Las Olas Beach / Fort Lauderdale Beachfront',
+        wazeUrl:
+          'https://waze.com/ul?q=Pollo%20Tropical%202217%20N%20Dixie%20Hwy%20Pompano%20Beach%20FL',
         notes: [
           'Tempo de viagem Boca Raton → Ft Lauderdale: ~30 min',
           'Almoço rápido + volta pela praia',
           'Tempo no local: 1h máximo',
-          'Sugestão almoço: Pollo Tropical - 2217 N Dixie Hwy, Pompano Beach',
-          '📸 Fotos em Las Olas Beach'
-        ]
+          'Sugestão almoço: Pollo Tropical - 2217 N Dixie Hwy, Pompano Beach, FL 33060',
+          '📸 Fotos em Las Olas Beach',
+        ],
       },
       {
         id: 'miami-arrival',
         time: '13:45',
         title: '🏨 Chegada em Miami - Quality Inn',
         description: 'Check-in no hotel',
-        location: 'Quality Inn Miami',
+        location: '3959 NW 79th Ave, Miami, FL 33166',
+        wazeUrl:
+          'https://waze.com/ul?q=3959%20NW%2079th%20Ave%2C%20Miami%2C%20FL%2033166',
         notes: [
           'Tempo de viagem Ft Lauderdale → Miami: ~1h',
+          'Endereço: 3959 NW 79th Ave, Miami, FL 33166',
           'Check-in e organização',
-          'Preparação para as atividades da tarde'
-        ]
+          'Preparação para as atividades da tarde',
+        ],
       },
       {
         id: 'car-exchange',
-        time: '17:00',
+        time: '16:00',
         title: '🚙 Troca dos carros',
         description: 'Processo de devolução e retirada de carros',
         notes: [
-          'Fernanda: Retira e devolução às 18h',
-          'Jenni: Retira e devolução às 17h/18h',
-          'Coordenar horários entre os grupos'
-        ]
+          'Troca de carros entre 16h às 17h',
+          'Direto para NBA após a troca',
+          'Coordenar horários entre os grupos',
+        ],
       },
       {
         id: 'miami-tour-prep',
@@ -1403,36 +1714,43 @@ export const itineraryData: DayItinerary[] = [
         notes: [
           'Opção 1: Big Bus Miami (tour turístico)',
           'Opção 2: Carro próprio para flexibilidade',
-          'Avaliar tempo disponível antes do jogo'
-        ]
+          'Avaliar tempo disponível antes do jogo',
+        ],
       },
       {
         id: 'nba-game',
         time: '18:30',
         title: '🏀 NBA - Miami Heat vs LA Clippers',
         description: 'Jogo de basquete profissional',
-        location: 'Kaseya Center, Miami, FL',
+        location: 'Kaseya Center, 601 Biscayne Blvd, Miami, FL 33132',
+        wazeUrl:
+          'https://waze.com/ul?q=601%20Biscayne%20Blvd%2C%20Miami%2C%20FL%2033132',
         notes: [
           'Horário: 18:30',
           'Miami Heat vs LA Clippers',
+          'Endereço: 601 Biscayne Blvd, Miami, FL 33132',
           'Experiência única de NBA',
           '📸 Fotos no Kaseya Center',
           '📸 Fotos durante o jogo',
-          'Chegar com antecedência para entrada e fotos'
+          'Chegar com antecedência para entrada e fotos',
         ],
-        isHighlight: true
+        isHighlight: true,
       },
       {
         id: 'post-game',
         time: '21:30',
         title: '🌃 Pós-jogo',
-        description: 'Retorno ao hotel ou atividade noturna',
+        description: 'Retorno ao hotel',
+        location: '3959 NW 79th Ave, Miami, FL 33166',
+        wazeUrl:
+          'https://waze.com/ul?q=3959%20NW%2079th%20Ave%2C%20Miami%2C%20FL%2033166',
         notes: [
-          'Opção 1: Retorno direto ao hotel',
-          'Opção 2: Jantar tardio em Miami',
-          'Opção 3: Caminhada noturna em South Beach (se energia permitir)'
-        ]
-      }
+          'Retorno ao Quality Inn Miami',
+          'Endereço: 3959 NW 79th Ave, Miami, FL 33166',
+          'Descanso após o jogo',
+          'Preparação para o próximo dia',
+        ],
+      },
     ],
     notes: [
       '📋 Cronograma Resumido:',
@@ -1440,246 +1758,363 @@ export const itineraryData: DayItinerary[] = [
       '10h45-11h15 – Boca Raton (South Inlet Park)',
       '11h45-12h45 – Fort Lauderdale (almoço + praia)',
       '13h45-14h00 – Chegada no Quality Inn Miami',
-      '17h00-18h00 – Troca dos carros',
-      '18h30 – NBA Game (Miami Heat vs LA Clippers)'
-    ]
+      '16h00-17h00 – Troca dos carros',
+      '18h30 – NBA Game (Miami Heat vs LA Clippers)',
+    ],
   },
   {
     id: 'day13',
     date: '2025-12-02',
-    title: 'Terça-feira - Roteiro Privado Miami',
-    description: 'Tour completo por Miami com grupo privado',
-    tags: ['miami', 'tour-privado', 'south-beach', 'wynwood', 'little-havana'],
+    title: 'Terça-feira - Florida Keys + Miami',
+    description: 'Viagem às Florida Keys e tarde em Miami com pôr do sol',
+    tags: ['florida-keys', 'islamorada', 'miami', 'south-beach', 'wynwood'],
     activities: [
       {
-        id: 'south-beach',
-        time: '09:00',
-        title: '🏖️ South Beach & Ocean Drive',
-        description: 'Início do tour pelos pontos icônicos de Miami',
-        location: 'Ocean Drive & South Pointe Park Pier',
+        id: 'wake-up',
+        time: '07:00',
+        title: '⏰ Acordar e café da manhã',
+        description: 'Preparação para o dia nas Florida Keys',
+        notes: ['Café da manhã no hotel', 'Preparação para viagem de 1h30'],
+      },
+      {
+        id: 'departure-keys',
+        time: '07:30',
+        title: '🚗 Saída para Florida Keys',
+        description: 'Viagem rumo às Florida Keys via US-1',
+        location: 'US-1 South',
         notes: [
-          'Prédios Art Déco coloridos da Ocean Drive',
-          'Caminhada rápida em South Pointe Park Pier',
-          'Vista espetacular da praia e baía de Miami',
-          '📸 Fotos em grupo logo no começo do dia',
-          'Tempo no local: 1h'
+          'Duração: cerca de 1h30 até Islamorada',
+          'Estrada panorâmica pela US-1',
+          'Vista do oceano durante a viagem',
         ],
-        isHighlight: true
+      },
+      {
+        id: 'robbies-marina',
+        time: '09:30',
+        title: "🐟 Robbie's Marina",
+        description: 'Experiência de alimentar os tarpons',
+        location: '77522 Overseas Hwy, Islamorada, FL 33036',
+        wazeUrl:
+          'https://waze.com/ul?q=77522%20Overseas%20Hwy%2C%20Islamorada%2C%20FL%2033036',
+        notes: [
+          'Experiência divertida de alimentar os tarpons',
+          'Lojinhas e bebidas com clima praiano descontraído',
+          'Local instagramável com vista para o mar',
+          'Tempo no local: 2h (09h30-11h30)',
+          '📸 Fotos com os tarpons',
+        ],
+        isHighlight: true,
+      },
+      {
+        id: 'annes-beach',
+        time: '11:00',
+        title: "🏖️ Anne's Beach (Opcional)",
+        description: 'Pequena praia calma para fotos',
+        location: "Anne's Beach, Islamorada, FL",
+        wazeUrl: 'https://waze.com/ul?q=Anne%27s%20Beach%20Islamorada%20FL',
+        notes: [
+          'Pequena praia calma, ótima para fotos',
+          'Relaxar alguns minutos',
+          'Tempo no local: 30 min (11h00-11h30)',
+          'Opcional conforme tempo disponível',
+        ],
+      },
+      {
+        id: 'return-miami',
+        time: '11:30',
+        title: '🚗 Retorno a Miami',
+        description: 'Viagem de volta para Miami',
+        notes: [
+          'Duração: cerca de 1h30',
+          'Parada livre para almoço leve ou lanche',
+          'Chegada em Miami por volta das 13h00',
+        ],
       },
       {
         id: 'downtown-bayside',
-        time: '10:30',
+        time: '13:30',
         title: '🏙️ Downtown & Bayside Marketplace',
         description: 'Centro de Miami e shopping à beira da baía',
         location: 'Bayfront Park & Bayside Marketplace',
+        wazeUrl: 'https://waze.com/ul?q=Bayside%20Marketplace%20Miami%20FL',
         notes: [
           'Passagem por Bayfront Park',
-          'Bayside Marketplace - shopping a céu aberto',
-          'Opção: Passeio de barco 1h pela Biscayne Bay',
+          'Breve parada no Bayside Marketplace',
+          'Opção: Passeio de barco (1h) pela Biscayne Bay',
           'Star Island e mansões de famosos',
-          'Alternativa: curtir lojinhas e vista da baía',
-          'Tempo no local: 1h30'
-        ]
-      },
-      {
-        id: 'little-havana',
-        time: '12:15',
-        title: '🇨🇺 Little Havana - Calle Ocho',
-        description: 'Bairro cubano autêntico',
-        location: 'Calle Ocho, Little Havana',
-        notes: [
-          'Passeio a pé pela Calle Ocho',
-          'Domino Park - locais jogando dominó',
-          'Café cubano no Versailles ou Ball & Chain',
-          'Almoço: Versailles (clássico) ou La Carreta (grupos)',
-          'Cultura cubana autêntica',
-          'Tempo no local: 1h15'
+          'Caso não faça o passeio: lojinhas e vista da baía',
         ],
-        isHighlight: true
-      },
-      {
-        id: 'wynwood-design',
-        time: '14:00',
-        title: '🎨 Wynwood Walls & Design District',
-        description: 'Arte urbana e arquitetura moderna',
-        location: 'Wynwood Walls & Design District',
-        notes: [
-          'Wynwood Walls - murais grafitados famosos',
-          'Fotos super instagramáveis',
-          'Design District - lojas e arquitetura moderna',
-          'Wynwood Walls Museum - $12 por pessoa',
-          'Bairro artístico imperdível',
-          '📸 Cenário perfeito para fotos criativas',
-          'Tempo no local: 1h30'
-        ],
-        isHighlight: true
       },
       {
         id: 'coral-gables',
-        time: '15:45',
+        time: '16:30',
         title: '🏛️ Coral Gables & Coconut Grove',
         description: 'Charme histórico e bairro boêmio',
         location: 'Biltmore Hotel & Cocowalk',
+        wazeUrl: 'https://waze.com/ul?q=Biltmore%20Hotel%20Coral%20Gables%20FL',
         notes: [
-          'Coral Gables: Biltmore Hotel e casas históricas',
-          'Coconut Grove: bairro arborizado e boêmio',
-          'Parada no Cocowalk para café/gelato',
-          'Arquitetura charmosa',
-          'Tempo no local: 1h15'
-        ]
+          'Coral Gables: passagem pelo histórico Biltmore Hotel',
+          'Mansões arborizadas',
+          'Coconut Grove: bairro boêmio e arborizado',
+          'Café ou gelato no Cocowalk',
+        ],
+      },
+      {
+        id: 'south-pointe-sunset',
+        time: '17:00',
+        title: '🌅 South Pointe Park Pier - Pôr do sol',
+        description: 'Local perfeito para o pôr do sol',
+        location: 'South Pointe Park Pier, Miami Beach',
+        wazeUrl:
+          'https://waze.com/ul?q=South%20Pointe%20Park%20Pier%20Miami%20Beach%20FL',
+        notes: [
+          'Local perfeito para o pôr do sol',
+          'Ver a saída dos cruzeiros',
+          'Caminhada leve com vista para o mar e skyline',
+          '📸 Fotos imperdíveis do pôr do sol!',
+          'Tempo: 17h00-17h45',
+        ],
+        isHighlight: true,
+      },
+      {
+        id: 'ocean-drive-art-deco',
+        time: '18:00',
+        title: '🌃 Ocean Drive & Art Déco District',
+        description: 'Passeio pela famosa avenida iluminada',
+        location: 'Ocean Drive, Miami Beach',
+        wazeUrl: 'https://waze.com/ul?q=Ocean%20Drive%20Miami%20Beach%20FL',
+        notes: [
+          'Passeio pela famosa avenida com prédios iluminados',
+          'Estilo Art Déco',
+          'Parada para café, drink ou fotos',
+          'Letreiros coloridos',
+          '📸 Fotos noturnas icônicas',
+        ],
+        isHighlight: true,
+      },
+      {
+        id: 'dinner-miami',
+        time: '21:00',
+        title: '🍽️ Jantar Sugerido',
+        description: 'Opções de jantar conforme o clima desejado',
+        notes: [
+          'Little Havana 1957 – comida cubana com música ao vivo',
+          'The Local House – ambiente tranquilo e sofisticado',
+          'Nikki Beach Restaurant – estilo praia, clima leve e descontraído',
+          'Escolha conforme o clima desejado',
+        ],
       },
       {
         id: 'return-hotel',
-        time: '17:30',
+        time: '22:00',
         title: '🏨 Retorno ao hotel',
-        description: 'Final tranquilo após dia completo',
+        description: 'Fim de um dia repleto de paisagens e arte',
+        location: '3959 NW 79th Ave, Miami, FL 33166',
+        wazeUrl:
+          'https://waze.com/ul?q=3959%20NW%2079th%20Ave%2C%20Miami%2C%20FL%2033166',
         notes: [
-          'Encerramento sem correria',
-          '8h de passeio completo',
-          'Microônibus privado - flexibilidade total'
-        ]
-      }
+          'Fim de um dia repleto de paisagens, estrada, arte',
+          'Pôr do sol mais bonito de Miami',
+          'Descanso após dia intenso',
+        ],
+      },
     ],
     notes: [
-      '🚐 Tour privado com microônibus - flexibilidade total',
-      '⏰ Horário: 9h00 → 17h30 (8h de passeio)',
-      '🚤 Opcional: Passeio de barco no Bayside (1h)',
-      '🎨 Reservar Wynwood Walls Museum ($12/pessoa)',
-      '📸 Roteiro focado em pontos instagramáveis'
-    ]
+      '📋 Cronograma Resumido:',
+      '07h00 – Acordar e café da manhã',
+      '07h30 – Saída para Florida Keys (US-1)',
+      "09h30-11h30 – Robbie's Marina (Islamorada)",
+      "11h00-11h30 – Anne's Beach (opcional)",
+      '11h30 – Retorno a Miami',
+      '13h30 – Downtown & Bayside Marketplace',
+      '15h00 – Wynwood Walls & Design District',
+      '16h30 – Coral Gables & Coconut Grove',
+      '17h00-17h45 – South Pointe Park Pier (pôr do sol)',
+      '18h00 – Ocean Drive & Art Déco District',
+      '21h00 – Jantar',
+      '22h00 – Retorno ao hotel',
+    ],
   },
   {
     id: 'day14',
     date: '2025-12-03',
-    title: 'Quarta-feira - Florida Keys',
-    description: 'Aventura pelas ilhas paradisíacas das Florida Keys',
-    tags: ['florida-keys', 'marathon', 'islamorada', 'praia', 'ponte'],
+    title: 'Quarta-feira - Despedida de Miami & Retorno ao Brasil',
+    description:
+      'Dia final em Miami com compras no Brickell e retorno ao Brasil',
+    tags: ['miami', 'brickell', 'compras', 'retorno-brasil', 'aeroporto'],
     activities: [
       {
-        id: 'wake-up-checkout',
+        id: 'wake-up-breakfast',
         time: '07:00',
-        title: '🌅 Acordar e preparação',
-        description: 'Início do dia para as Florida Keys'
+        title: '⏰ Acordar e café da manhã',
+        description: 'Preparativos finais no hotel',
+        notes: [
+          'Aproveitem com calma',
+          'Verificar documentos, passaportes e reservas',
+          'Tempo para organizar malas',
+          'Deixar tudo pronto para check-out',
+        ],
       },
       {
-        id: 'breakfast',
-        time: '07:30',
-        title: '☕ Café da manhã',
-        description: 'Café da manhã/merenda antes da viagem'
-      },
-      {
-        id: 'checkout',
+        id: 'checkout-hotel',
         time: '09:00',
         title: '🏨 Check-out do hotel',
-        description: 'Saída do hotel rumo às Florida Keys',
+        description: 'Saída do Quality Inn Miami Airport',
+        location: '3959 NW 79th Ave, Miami, FL 33166',
+        wazeUrl:
+          'https://waze.com/ul?q=3959%20NW%2079th%20Ave%2C%20Miami%2C%20FL%2033166',
         notes: [
-          'Destino: Marathon/Islamorada',
-          'Tempo de viagem: 2h a 2h30',
-          'Trajeto pela Overseas Highway'
-        ]
-      },
-      {
-        id: 'seven-mile-bridge',
-        time: '11:30',
-        title: '🌉 Seven Mile Bridge',
-        description: 'Ponte icônica das Keys com 11km',
-        location: 'Seven Mile Bridge, Marathon',
-        notes: [
-          'Ponte mais famosa das Florida Keys',
-          'Caminhar no trecho de pedestres',
-          'Vista panorâmica do oceano',
-          '📸 Fotos incríveis da ponte',
-          'Marco icônico da viagem'
+          'Carregar a van com as bagagens',
+          'Conferir se deixaram algo nos quartos',
+          'Documentos, carregadores, etc.',
+          'Partida às 09h45-10h00 rumo a Brickell',
         ],
-        isHighlight: true
       },
       {
-        id: 'sombrero-beach',
+        id: 'brickell-city-centre',
+        time: '10:30',
+        title: '🛍️ Brickell City Centre Experience',
+        description: 'Shopping de luxo em Miami',
+        location: '701 S Miami Ave, Miami, FL 33130',
+        wazeUrl:
+          'https://waze.com/ul?q=701%20S%20Miami%20Ave%2C%20Miami%2C%20FL%2033130',
+        notes: [
+          '~20 min do hotel | ~20 min até o aeroporto',
+          'Estacionamento: garagem coberta e segura',
+          'Acesso fácil para vans (entrada pela 8th Street SW ou 7th Street SW)',
+          'Apple Store – últimos lançamentos e acessórios originais',
+          'Zara / AllSaints / Boss / Sephora – opções elegantes',
+          'Saks Fifth Avenue – luxo e marcas premium',
+          'Tempo no local: 10h30-14h00',
+        ],
+        isHighlight: true,
+      },
+      {
+        id: 'lunch-brickell',
         time: '12:30',
-        title: '🏖️ Sombrero Beach',
-        description: 'Praia paradisíaca em Marathon',
-        location: 'Sombrero Beach, Marathon',
+        title: '🍽️ Almoço em Brickell',
+        description: 'Opções de restaurantes brasileiros',
         notes: [
-          'Praia com coqueiros e areia clara',
-          'Águas cristalinas e calmas',
-          'Excelente para banho e relaxar',
-          'Uma das melhores praias das Keys',
-          '📸 Cenário tropical perfeito',
-          'Tempo para descanso antes do almoço'
+          'Opção 1: Bossa Nova Lounge / Boteco Miami Brickell',
+          '1111 SW 1st Ave (6 min a pé do Brickell City Centre)',
+          'Comida brasileira moderna e saborosa - US$15-22',
+          'Pratos: arroz, feijão, picanha, estrogonofe, farofa e caipirinha',
+          'Prato executivo de almoço: picanha + acompanhamentos ~US$17',
+          '',
+          'Opção 2: Fazenda Coffee Brickell',
+          '956 Brickell Ave (8 min a pé)',
+          'Cafeteria brasileira artesanal - US$12-16',
+          'Tapioca, pão de queijo, café brasileiro, empanadas, saladas e açaí',
+          '',
+          'Opção 3: Sagrado Café Brasileiro (RECOMENDADO)',
+          '900 S Miami Ave #125, Brickell',
+          '3-5 min a pé do Brickell City Centre - US$10-18',
+          'Pão de queijo com requeijão, açaí na tigela, coxinha',
+          'Combo "Prato do Dia + Suco Natural" - saudável e barato',
         ],
-        isHighlight: true
       },
       {
-        id: 'turtle-hospital',
+        id: 'brickell-walk',
+        time: '13:30',
+        title: '🚶 Caminhada pela região de Brickell',
+        description: 'Passeio final pela área urbana',
+        notes: [
+          'Caminhar pela Brickell Avenue',
+          'Miami River - ótimo para fotos',
+          'Arranha-céus e paisagem urbana',
+          '📸 Fotos finais de Miami',
+          'Última paradinha no Starbucks do Brickell',
+        ],
+      },
+      {
+        id: 'departure-airport',
         time: '14:00',
-        title: '🐢 Turtle Hospital (opcional)',
-        description: 'Centro de reabilitação de tartarugas',
-        location: 'Marathon',
+        title: '✈️ Saída para o aeroporto',
+        description: 'Rumo ao Miami International Airport',
         notes: [
-          'Centro de reabilitação de tartarugas marinhas',
-          'Experiência educativa única',
-          'Alternativa: Florida Keys Aquarium Encounters',
-          'Precisa reservar com antecedência',
-          'Atividade opcional conforme interesse do grupo'
-        ]
-      },
-      {
-        id: 'robbies-marina',
-        time: '15:30',
-        title: '🐟 Robbie\'s Marina',
-        description: 'Experiência única em Islamorada',
-        location: 'Robbie\'s Marina, Islamorada',
-        notes: [
-          'Alimentar os tarpons gigantes',
-          'Experiência única e divertida',
-          'Restaurantes e lojinhas locais',
-          'Ótimo ponto para almoço tardio',
-          '📸 Fotos com os peixes',
-          'Ambiente descontraído'
+          'Saída do Brickell City Centre',
+          '20 min até o Hertz Miami International Airport',
+          'Endereço: 3900 NW 25th St, Miami, FL 33142',
+          'Tempo estimado de devolução da van + translado: 30-40 min',
+          'Dica: já deixe cheio o tanque para agilizar a devolução',
         ],
-        isHighlight: true
       },
       {
-        id: 'annes-beach',
-        time: '16:30',
-        title: '🌊 Anne\'s Beach',
-        description: 'Praia calma para relaxar',
-        location: 'Anne\'s Beach, Islamorada',
+        id: 'hertz-return',
+        time: '14:30',
+        title: '🚙 Devolução da van Hertz',
+        description: 'Processo de devolução do veículo',
+        location: '3900 NW 25th St, Miami, FL 33142',
+        wazeUrl:
+          'https://waze.com/ul?q=3900%20NW%2025th%20St%2C%20Miami%2C%20FL%2033142',
         notes: [
-          'Praia calma, ideal para caminhar',
-          'Parada rápida se sobrar tempo',
-          'Vista linda do pôr do sol',
-          'Momento de contemplação'
-        ]
+          'Devolução da van com 12 pessoas + bagagens',
+          'Verificar se tanque está cheio',
+          'Processo de devolução',
+          'Translado até o terminal',
+        ],
       },
       {
-        id: 'return-journey',
-        time: '17:30',
-        title: '🚗 Retorno',
-        description: 'Volta para Miami ou próximo destino',
+        id: 'check-in-airport',
+        time: '15:00',
+        title: '🛫 Check-in e despacho das bagagens',
+        description: 'Processo de embarque',
+        location: 'Miami International Airport',
+        wazeUrl: 'https://waze.com/ul?q=Miami%20International%20Airport%20FL',
         notes: [
-          'Fim do dia nas Florida Keys',
-          'Viagem de volta (2h30)',
-          'Experiência única nas ilhas'
-        ]
-      }
+          'Check-in no aeroporto',
+          'Despacho das bagagens',
+          'Verificação de documentos',
+          'Preparação para embarque',
+        ],
+      },
+      {
+        id: 'boarding-gate',
+        time: '16:00',
+        title: '🚪 Portão de embarque',
+        description: 'Prontos para o voo de volta ao Brasil',
+        notes: [
+          'No portão de embarque',
+          'Prontos para o voo Fortaleza - Brasil',
+          'Despedida de Miami',
+          'Fim da viagem incrível! 🇧🇷',
+        ],
+        isHighlight: true,
+      },
     ],
     notes: [
-      '🏝️ Aventura pelas ilhas paradisíacas das Florida Keys',
-      '🌉 Seven Mile Bridge - ponte icônica de 11km',
-      '🏖️ Praias de águas cristalinas e areia branca',
-      '🐢 Opcional: Turtle Hospital (reservar antecipadamente)',
-      '🐟 Robbie\'s Marina - alimentar tarpons gigantes',
-      '🍴 Almoço flexível: Marathon ou Islamorada'
-    ]
+      '📋 Cronograma Resumido:',
+      '07h00 – Acordar e café da manhã',
+      '09h00 – Check-out do hotel',
+      '10h30-14h00 – Brickell City Centre Experience',
+      '12h30-13h30 – Almoço em Brickell',
+      '13h30 – Caminhada pela região de Brickell',
+      '14h00 – Saída para o aeroporto',
+      '14h30 – Devolução da van Hertz',
+      '15h00 – Check-in e despacho das bagagens',
+      '16h00 – Portão de embarque',
+      '',
+      '💡 Dicas Finais:',
+      '• Saia do Brickell no máximo às 14h15 — o trânsito pode variar',
+      '• No Hertz, já deixe cheio o tanque para agilizar a devolução',
+      '• Tenham uma muda de roupa leve à mão (Miami costuma estar quente)',
+      '• Última paradinha no Starbucks do Brickell antes da estrada',
+      '• Recomendação: Sagrado Café Brasileiro - pertinho, barato e gostinho de Brasil 🇧🇷',
+    ],
   },
   // ... outros dias do roteiro
 ];
 
 export const getDayByDate = (dateString: string): DayItinerary | undefined => {
-  return itineraryData.find(day => day.date === dateString);
+  return itineraryData.find((day) => day.date === dateString);
 };
 
 export const getAllDays = (): DayItinerary[] => {
   return itineraryData;
+};
+
+// Função utilitária para gerar links do Waze
+export const generateWazeUrl = (address: string): string => {
+  const encodedAddress = encodeURIComponent(address);
+  return `https://waze.com/ul?q=${encodedAddress}`;
 };

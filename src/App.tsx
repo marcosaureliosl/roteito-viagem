@@ -1,28 +1,29 @@
-import { useState, useEffect, Suspense, lazy } from 'react';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Box, CircularProgress } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import { Suspense, lazy, useEffect, useState } from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 
 // Theme
 import { theme } from './theme/theme';
 
 // Components
-import Header from './components/layout/Header';
 import DrawerMenu from './components/layout/DrawerMenu';
+import Header from './components/layout/Header';
 
 // Pages - Importações dinâmicas para code-splitting
 const HomePage = lazy(() => import('./pages/HomePage'));
 const DayItineraryPage = lazy(() => import('./pages/DayItineraryPage'));
+const TripEndPage = lazy(() => import('./pages/TripEndPage'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'));
 
 // Componente de carregamento
 const LoadingSpinner = () => (
-  <Box 
-    display="flex" 
-    justifyContent="center" 
-    alignItems="center" 
-    minHeight="60vh"
+  <Box
+    display='flex'
+    justifyContent='center'
+    alignItems='center'
+    minHeight='60vh'
   >
     <CircularProgress />
   </Box>
@@ -36,7 +37,7 @@ function App() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    
+
     const handleResize = () => {
       setIsMobile(window.innerWidth < 600);
       if (window.innerWidth > 900) {
@@ -46,7 +47,7 @@ function App() {
 
     // Configura o valor inicial
     handleResize();
-    
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -59,14 +60,16 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
-        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+        <Box
+          sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}
+        >
           <Header onMenuClick={handleDrawerToggle} />
           <DrawerMenu open={mobileOpen} onClose={() => setMobileOpen(false)} />
-          
-          <Box 
-            component="main" 
-            sx={{ 
-              flexGrow: 1, 
+
+          <Box
+            component='main'
+            sx={{
+              flexGrow: 1,
               p: isMobile ? 2 : 3,
               pt: 8, // Espaço para o cabeçalho fixo
               maxWidth: 1200,
@@ -76,9 +79,10 @@ function App() {
           >
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/day/:dayId" element={<DayItineraryPage />} />
-                <Route path="*" element={<NotFoundPage />} />
+                <Route path='/' element={<HomePage />} />
+                <Route path='/day/:dayId' element={<DayItineraryPage />} />
+                <Route path='/trip-end' element={<TripEndPage />} />
+                <Route path='*' element={<NotFoundPage />} />
               </Routes>
             </Suspense>
           </Box>

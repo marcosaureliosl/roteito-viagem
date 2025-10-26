@@ -5,6 +5,7 @@ import {
   ExpandMore as ExpandMoreIcon,
   FlightTakeoff as FlightIcon,
   Info as InfoIcon,
+  Navigation as NavigationIcon,
   Park as ParkIcon,
   Place as PlaceIcon,
   Restaurant as RestaurantIcon,
@@ -253,19 +254,51 @@ const DayItineraryPage: React.FC = () => {
                               sx={{
                                 display: 'flex',
                                 alignItems: 'center',
+                                justifyContent: 'space-between',
                                 mt: 0.5,
                               }}
                             >
-                              <PlaceIcon
-                                fontSize='small'
-                                sx={{ mr: 0.5, color: 'text.secondary' }}
-                              />
-                              <Typography
-                                variant='caption'
-                                color='text.secondary'
+                              <Box
+                                sx={{
+                                  display: 'flex',
+                                  alignItems: 'center',
+                                  flex: 1,
+                                }}
                               >
-                                {activity.location}
-                              </Typography>
+                                <PlaceIcon
+                                  fontSize='small'
+                                  sx={{ mr: 0.5, color: 'text.secondary' }}
+                                />
+                                <Typography
+                                  variant='caption'
+                                  color='text.secondary'
+                                >
+                                  {activity.location}
+                                </Typography>
+                              </Box>
+                              {activity.wazeUrl && (
+                                <Button
+                                  size='small'
+                                  variant='outlined'
+                                  startIcon={<NavigationIcon />}
+                                  onClick={() =>
+                                    window.open(activity.wazeUrl, '_blank')
+                                  }
+                                  sx={{
+                                    ml: 1,
+                                    minWidth: 'auto',
+                                    px: 1,
+                                    py: 0.5,
+                                    fontSize: '0.7rem',
+                                    height: 24,
+                                    '& .MuiButton-startIcon': {
+                                      marginRight: 0.5,
+                                    },
+                                  }}
+                                >
+                                  Waze
+                                </Button>
+                              )}
                             </Box>
                           )}
                         </React.Fragment>
@@ -336,21 +369,46 @@ const DayItineraryPage: React.FC = () => {
           Dia Anterior
         </Button>
 
-        <Button
-          endIcon={<ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />}
-          onClick={() => {
-            const currentDay = parseInt(dayId || '1', 10);
-            if (currentDay < itineraryData.length) {
-              navigate(`/day/${currentDay + 1}`);
+        {parseInt(dayId || '1', 10) >= itineraryData.length ? (
+          <Button
+            endIcon={<ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />}
+            onClick={() => {
+              navigate('/trip-end');
               if (typeof window !== 'undefined') {
                 window.scrollTo(0, 0);
               }
-            }
-          }}
-          disabled={parseInt(dayId || '1', 10) >= itineraryData.length}
-        >
-          Próximo Dia
-        </Button>
+            }}
+            sx={{
+              background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4)',
+              color: 'white',
+              fontWeight: 'bold',
+              '&:hover': {
+                background: 'linear-gradient(45deg, #FF5252, #26A69A)',
+                transform: 'translateY(-2px)',
+                boxShadow: '0 6px 20px rgba(0,0,0,0.3)',
+              },
+              transition: 'all 0.3s ease',
+            }}
+          >
+            🎉 Ver Página Final 🎉
+          </Button>
+        ) : (
+          <Button
+            endIcon={<ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />}
+            onClick={() => {
+              const currentDay = parseInt(dayId || '1', 10);
+              if (currentDay < itineraryData.length) {
+                navigate(`/day/${currentDay + 1}`);
+                if (typeof window !== 'undefined') {
+                  window.scrollTo(0, 0);
+                }
+              }
+            }}
+            disabled={parseInt(dayId || '1', 10) >= itineraryData.length}
+          >
+            Próximo Dia
+          </Button>
+        )}
       </Box>
     </Box>
   );
