@@ -14,7 +14,6 @@ import {
   Box,
   Button,
   Card,
-  CardContent,
   Container,
   Dialog,
   DialogActions,
@@ -297,51 +296,6 @@ const TripEndPage: React.FC = () => {
             </Box>
           </motion.div>
 
-          {/* Stats Cards */}
-          <motion.div variants={itemVariants}>
-            <Grid container spacing={3} sx={{ mb: 6 }}>
-              {Object.entries(tripStats).map(([key, value], index) => (
-                <Grid item xs={6} md={2} key={key}>
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <Card
-                      sx={{
-                        background: 'rgba(255, 255, 255, 0.1)',
-                        backdropFilter: 'blur(10px)',
-                        border: '1px solid rgba(255, 255, 255, 0.2)',
-                        color: 'white',
-                        textAlign: 'center',
-                        py: 2,
-                        '&:hover': {
-                          transform: 'translateY(-5px)',
-                          boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
-                        },
-                        transition: 'all 0.3s ease',
-                      }}
-                    >
-                      <CardContent>
-                        <Typography
-                          variant='h4'
-                          sx={{ fontWeight: 'bold', mb: 1 }}
-                        >
-                          {value}
-                        </Typography>
-                        <Typography variant='body2' sx={{ opacity: 0.8 }}>
-                          {key
-                            .replace(/([A-Z])/g, ' $1')
-                            .replace(/^./, (str) => str.toUpperCase())}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </motion.div>
-                </Grid>
-              ))}
-            </Grid>
-          </motion.div>
-
           {/* Highlights Section */}
           <motion.div variants={itemVariants}>
             <Typography
@@ -408,6 +362,7 @@ const TripEndPage: React.FC = () => {
               <Box
                 sx={{
                   display: 'flex',
+                  flexDirection: { xs: 'column', md: 'row' },
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: 2,
@@ -427,6 +382,7 @@ const TripEndPage: React.FC = () => {
                     px: 4,
                     py: 1.5,
                     fontSize: '1.1rem',
+                    width: { xs: '100%', md: 'auto' },
                     '&:hover': {
                       bgcolor: 'rgba(255, 255, 255, 0.3)',
                       transform: 'translateY(-2px)',
@@ -447,6 +403,7 @@ const TripEndPage: React.FC = () => {
                     px: 3,
                     py: 1.5,
                     fontSize: '1rem',
+                    width: { xs: '100%', md: 'auto' },
                     '&:hover': {
                       bgcolor: 'rgba(255, 255, 255, 0.1)',
                       borderColor: 'white',

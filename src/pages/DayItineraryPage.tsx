@@ -116,14 +116,32 @@ const DayItineraryPage: React.FC = () => {
 
   if (!dayData) {
     return (
-      <Box sx={{ textAlign: 'center', py: 4 }}>
-        <Typography variant='h6'>Carregando...</Typography>
+      <Box
+        sx={{
+          textAlign: 'center',
+          py: 4,
+          minHeight: 'calc(100vh - 64px)',
+          bgcolor: 'background.default',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Typography variant='h6' color='text.secondary'>
+          Carregando...
+        </Typography>
       </Box>
     );
   }
 
   return (
-    <Box>
+    <Box
+      sx={{
+        minHeight: 'calc(100vh - 64px)',
+        bgcolor: 'background.default',
+        pb: 4,
+      }}
+    >
       {/* Cabeçalho */}
       <Box sx={{ display: 'flex', alignItems: 'center', mb: 3 }}>
         <IconButton onClick={() => navigate('/')} sx={{ mr: 1 }}>
@@ -352,64 +370,97 @@ const DayItineraryPage: React.FC = () => {
       </Card>
 
       {/* Navegação entre dias */}
-      <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 4 }}>
-        <Button
-          startIcon={<ArrowBackIcon />}
-          onClick={() => {
-            const currentDay = parseInt(dayId || '1', 10);
-            if (currentDay > 1) {
-              navigate(`/day/${currentDay - 1}`);
-              if (typeof window !== 'undefined') {
-                window.scrollTo(0, 0);
-              }
-            }
+      <Paper
+        elevation={3}
+        sx={{
+          p: 2,
+          mt: 4,
+          mb: 2,
+          bgcolor: 'background.paper',
+          borderRadius: 2,
+        }}
+      >
+        <Box
+          sx={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: 2,
+            flexWrap: { xs: 'wrap', sm: 'nowrap' },
           }}
-          disabled={parseInt(dayId || '1', 10) <= 1}
         >
-          Dia Anterior
-        </Button>
-
-        {parseInt(dayId || '1', 10) >= itineraryData.length ? (
           <Button
-            endIcon={<ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />}
-            onClick={() => {
-              navigate('/trip-end');
-              if (typeof window !== 'undefined') {
-                window.scrollTo(0, 0);
-              }
-            }}
-            sx={{
-              background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4)',
-              color: 'white',
-              fontWeight: 'bold',
-              '&:hover': {
-                background: 'linear-gradient(45deg, #FF5252, #26A69A)',
-                transform: 'translateY(-2px)',
-                boxShadow: '0 6px 20px rgba(0,0,0,0.3)',
-              },
-              transition: 'all 0.3s ease',
-            }}
-          >
-            🎉 Ver Página Final 🎉
-          </Button>
-        ) : (
-          <Button
-            endIcon={<ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />}
+            variant='outlined'
+            startIcon={<ArrowBackIcon />}
             onClick={() => {
               const currentDay = parseInt(dayId || '1', 10);
-              if (currentDay < itineraryData.length) {
-                navigate(`/day/${currentDay + 1}`);
+              if (currentDay > 1) {
+                navigate(`/day/${currentDay - 1}`);
                 if (typeof window !== 'undefined') {
                   window.scrollTo(0, 0);
                 }
               }
             }}
-            disabled={parseInt(dayId || '1', 10) >= itineraryData.length}
+            disabled={parseInt(dayId || '1', 10) <= 1}
+            sx={{
+              flex: { xs: '1 1 100%', sm: '0 1 auto' },
+              minWidth: { xs: '100%', sm: 'auto' },
+            }}
           >
-            Próximo Dia
+            Dia Anterior
           </Button>
-        )}
-      </Box>
+
+          {parseInt(dayId || '1', 10) >= itineraryData.length ? (
+            <Button
+              variant='contained'
+              endIcon={<ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />}
+              onClick={() => {
+                navigate('/trip-end');
+                if (typeof window !== 'undefined') {
+                  window.scrollTo(0, 0);
+                }
+              }}
+              sx={{
+                background: 'linear-gradient(45deg, #FF6B6B, #4ECDC4)',
+                color: 'white',
+                fontWeight: 'bold',
+                flex: { xs: '1 1 100%', sm: '0 1 auto' },
+                minWidth: { xs: '100%', sm: 'auto' },
+                '&:hover': {
+                  background: 'linear-gradient(45deg, #FF5252, #26A69A)',
+                  transform: 'translateY(-2px)',
+                  boxShadow: '0 6px 20px rgba(0,0,0,0.3)',
+                },
+                transition: 'all 0.3s ease',
+              }}
+            >
+              🎉 Ver Página Final 🎉
+            </Button>
+          ) : (
+            <Button
+              variant='contained'
+              color='primary'
+              endIcon={<ArrowBackIcon sx={{ transform: 'rotate(180deg)' }} />}
+              onClick={() => {
+                const currentDay = parseInt(dayId || '1', 10);
+                if (currentDay < itineraryData.length) {
+                  navigate(`/day/${currentDay + 1}`);
+                  if (typeof window !== 'undefined') {
+                    window.scrollTo(0, 0);
+                  }
+                }
+              }}
+              disabled={parseInt(dayId || '1', 10) >= itineraryData.length}
+              sx={{
+                flex: { xs: '1 1 100%', sm: '0 1 auto' },
+                minWidth: { xs: '100%', sm: 'auto' },
+              }}
+            >
+              Próximo Dia
+            </Button>
+          )}
+        </Box>
+      </Paper>
     </Box>
   );
 };

@@ -71,10 +71,23 @@ function App() {
             sx={{
               flexGrow: 1,
               p: isMobile ? 2 : 3,
-              pt: 8, // Espaço para o cabeçalho fixo
+              pt: 8,
               maxWidth: 1200,
               width: '100%',
               mx: 'auto',
+              bgcolor: 'background.default',
+              minHeight: 'calc(100vh - 64px)',
+              position: 'relative',
+              '&::before': {
+                content: '""',
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                bgcolor: 'background.default',
+                zIndex: -1,
+              },
             }}
           >
             <Suspense fallback={<LoadingSpinner />}>
