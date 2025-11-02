@@ -12,16 +12,33 @@ import orlandoImage from '../assets/orlando-skyline.webp';
 const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const [authModalOpen, setAuthModalOpen] = useState(false);
-  const startDate = new Date('2025-11-20');
-  const endDate = new Date('2025-12-04');
+  // Datas da viagem: 20/11/2025 a 04/12/2025
+  // Chegada em Miami: Quinta-feira, 20/11/2025 às 17:00 (horário de Miami)
+  const startDate = new Date(2025, 10, 20); // 20/11/2025 (Novembro = 10, 0-indexed)
+  const endDate = new Date(2025, 11, 4); // 04/12/2025 (Dezembro = 11, 0-indexed)
 
   const formattedTripPeriod = `${format(startDate, 'dd/MM/yyyy')} a ${format(
     endDate,
     'dd/MM/yyyy'
   )}`;
-  const daysUntilTrip = Math.ceil(
-    (startDate.getTime() - new Date().getTime()) / (1000 * 3600 * 24)
-  );
+
+  // Calcula dias até a viagem corretamente
+  const calculateDaysUntilTrip = () => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Normaliza para início do dia
+
+    const tripStart = new Date(startDate);
+    tripStart.setHours(0, 0, 0, 0); // Normaliza para início do dia
+
+    // Calcula diferença em milissegundos e converte para dias
+    const diffTime = tripStart.getTime() - today.getTime();
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    // Retorna 0 se já passou, senão retorna o número de dias
+    return diffDays < 0 ? 0 : diffDays;
+  };
+
+  const daysUntilTrip = calculateDaysUntilTrip();
 
   const handleOpenDocumentations = () => {
     window.open(
@@ -92,7 +109,12 @@ const HomePage: React.FC = () => {
             Roteiro de Viagem - Orlando 2025
           </Typography>
           <Typography variant='h6' component='p'>
-            {formattedTripPeriod} • {daysUntilTrip} dias até a viagem
+            {formattedTripPeriod} •{' '}
+            {daysUntilTrip === 0
+              ? 'Viagem em andamento!'
+              : daysUntilTrip === 1
+              ? '1 dia até a viagem'
+              : `${daysUntilTrip} dias até a viagem`}
           </Typography>
         </Box>
       </Box>
@@ -150,6 +172,14 @@ const HomePage: React.FC = () => {
             <Typography variant='body2'>
               {format(startDate, "EEEE, d 'de' MMMM", { locale: ptBR })} às
               17:00
+            </Typography>
+            <Typography
+              variant='caption'
+              color='text.secondary'
+              display='block'
+              sx={{ mt: 0.5 }}
+            >
+              Horário de Miami (EST)
             </Typography>
           </CardContent>
         </Card>
